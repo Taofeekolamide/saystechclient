@@ -1,5 +1,4 @@
-import { BiBookOpen, BiFolderPlus, BiPlus, BiWallet } from "react-icons/bi";
-import { IconBase } from "react-icons";
+import { BiBookOpen, BiFolderPlus, BiPlus, BiUserPlus, BiWallet } from "react-icons/bi";
 import { FiArrowUpRight, FiMoreHorizontal } from "react-icons/fi";
 import { FaGraduationCap, FaUsers } from "react-icons/fa";
 
