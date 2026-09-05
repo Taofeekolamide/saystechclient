@@ -37,7 +37,7 @@ const Header = ({ setMobileOpen }) => {
             {/* Right */}
             <div className="flex items-center gap-6">
 
-                Notification
+                {/* Notification
                 <button className="relative">
 
                     <FaBell className="text-xl text-gray-600" />
@@ -46,14 +46,14 @@ const Header = ({ setMobileOpen }) => {
                         3
                     </span>
 
-                </button>
+                </button> */}
 
                 {/* User */}
 
                 <button className="flex items-center gap-3">
 
                     <img
-                        src={user?.profilePicture || "https://via.placeholder.com/150"}
+                        src={user?.profilePicture || `https://placehold.co/150x150?text=${user?.firstName?.charAt(0)}`}
                         alt=""
                         className="w-10 h-10 rounded-full"
                     />
