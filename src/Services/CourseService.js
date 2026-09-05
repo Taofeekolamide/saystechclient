@@ -9,7 +9,10 @@ const authHeaders = () => ({ Authorization: `Bearer ${getToken().accessToken}` }
 // GET ALL COURSES
 export const getCourses = async () => {
 
-    const res = await fetch(baseUrl);
+    const res = await fetch(baseUrl, {
+        method: "GET",
+        headers: authHeaders(),
+    });
 
     ResponseStatus(res);
 
@@ -27,7 +30,10 @@ export const getCourses = async () => {
 // GET COURSE BY ID
 export const getCourse = async (id) => {
 
-    const response = await fetch(`${baseUrl}/${id}`);
+    const response = await fetch(`${baseUrl}/${id}`, {
+        method: "GET",
+        headers: authHeaders(),
+    });
 
     ResponseStatus(response);
 
@@ -45,7 +51,10 @@ export const getCourse = async (id) => {
 // GET COURSES BY CATEGORY
 export const getCoursesByCategory = async (categoryId) => {
 
-    const res = await fetch(`${baseUrl}/Category/${categoryId}`);
+    const res = await fetch(`${baseUrl}/Category/${categoryId}`, {
+        method: "GET",
+        headers: authHeaders(),
+    });
 
     ResponseStatus(res);
 
@@ -62,7 +71,7 @@ export const getCoursesByCategory = async (categoryId) => {
 
 // CREATE COURSE
 export const createCourse = async (course) => {
-    
+
     const formData = new FormData();
 
     formData.append("title", course.title);

@@ -8,7 +8,11 @@ const authHeaders = () => ({ Authorization: `Bearer ${getToken().accessToken}` }
 
 // GET ALL CATEGORIES
 export const getCategories = async () => {
-    const res = await fetch(`${baseUrl}`);
+    const res = await fetch(`${baseUrl}`, {
+        method: "GET",
+        headers: authHeaders(),        
+    });
+
     ResponseStatus(res);
     const data = await res.json();
     if (data.success) {
@@ -21,7 +25,11 @@ export const getCategories = async () => {
 
 // GET CATEGORY BY ID
 export const getCategory = async (id) => {
-    const res = await fetch(`${baseUrl}/${id}`);
+    const res = await fetch(`${baseUrl}/${id}`, {
+        method: "GET",
+        headers: authHeaders(),
+    });
+
     ResponseStatus(res);
     const data = await res.json();
     if (data.success) {
@@ -34,7 +42,6 @@ export const getCategory = async (id) => {
 
 // CREATE CATEGORY
 export const createCategory = async (category) => {
-
 
     const formData = new FormData();
     formData.append("name", category.name)

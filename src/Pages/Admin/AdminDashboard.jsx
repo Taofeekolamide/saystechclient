@@ -1,32 +1,27 @@
 import { BiBookOpen, BiFolderPlus, BiPlus, BiUserPlus, BiWallet } from "react-icons/bi";
 import { FiArrowUpRight, FiMoreHorizontal } from "react-icons/fi";
-import { FaGraduationCap, FaUsers } from "react-icons/fa";
+import { FaUsers } from "react-icons/fa";
+import { CourseContext } from "../../Context/CourseContext";
+import { useContext } from "react";
 
 const AdminDashboard = () => {
+
+    const { courses } = useContext(CourseContext);
 
     const stats = [
         {
             title: "Total Students",
             value: "1,248",
-            change: "+12.5%",
             icon: FaUsers
         },
         {
-            title: "Total Tutors",
-            value: "24",
-            change: "+4.2%",
-            icon: FaGraduationCap
-        },
-        {
             title: "Total Courses",
-            value: "86",
-            change: "+8.4%",
+            value: courses.length,
             icon: BiBookOpen
         },
         {
             title: "Total Revenue",
             value: "₦2.4M",
-            change: "+18.7%",
             icon: BiWallet
         }
     ];
@@ -136,7 +131,7 @@ const AdminDashboard = () => {
                 grid
                 grid-cols-1
                 sm:grid-cols-2
-                xl:grid-cols-4
+                xl:grid-cols-3
                 gap-5
                 mb-8
             ">
