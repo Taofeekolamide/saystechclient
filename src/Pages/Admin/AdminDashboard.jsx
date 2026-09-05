@@ -1,4 +1,4 @@
-export default AdminDashboard = () => {
+const AdminDashboard = () => {
     return (
         <div className="space-y-8">
             <h1 className="text-2xl font-bold">Admin Dashboard</h1>
@@ -6,3 +6,5 @@ export default AdminDashboard = () => {
         </div>
     )
 }
+
+export default AdminDashboard
