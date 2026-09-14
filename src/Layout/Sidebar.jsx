@@ -9,7 +9,7 @@ const Sidebar = ({ role, collapsed, setCollapsed, mobile = false, closeMobile, }
 
     const { logout, auth } = useContext(AuthContext)
     const { user } = useContext(UserContext)
-    
+
     const sidebarMenu = {
         Student: [
             {
@@ -178,17 +178,13 @@ const Sidebar = ({ role, collapsed, setCollapsed, mobile = false, closeMobile, }
                     )}
                 </div>
 
-                <button onClick={logout}
-                    className={({ isActive }) => `mt-5 flex items-center ${collapsed && !mobile
+                <button
+                    onClick={logout}
+                    className={`mt-5 flex items-center ${collapsed && !mobile
                         ? "justify-center"
                         : "gap-4"
                         } px-4 py-3 mb-2 rounded-xl transition-all duration-300
-                                ${isActive
-                            ? "bg-gradient-to-l from-[red] to-[red]/70 text-white shadow-lg"
-                            : "hover:bg-slate-800 hover:text-white"
-                        }
-                                `
-                    }
+    hover:bg-red-600 hover:text-white`}
                 >
                     <FaSignOutAlt className="text-lg flex-shrink-0" />
 
