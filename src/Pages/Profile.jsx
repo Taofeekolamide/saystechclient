@@ -127,19 +127,6 @@ const Profile = () => {
                 </div>
             }
 
-            
-            
-            <div className="mt-8 grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
-
-                <Stat icon={FaBookOpen} title="Courses Enrolled" value={enrollments.length} />
-
-                <Stat icon={FaCheckCircle} title="Courses Completed" value={completedEnrollments.length} />
-
-                <Stat icon={FaClock} title="Learning Hours" value="0" />
-
-                <Stat icon={FaCertificate} title="Certificates" value={completedEnrollments.length} />
-
-            </div>
 
             {/* Main Content */}
             <div className="mt-8 grid lg:grid-cols-3 gap-8">
