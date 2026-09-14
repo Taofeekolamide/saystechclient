@@ -47,7 +47,7 @@ export const AuthProvider = ({ children }) => {
         } catch (error) {
 
             showAlert("Login Failed", "error");
-            
+
         } finally {
             setLoading(false);
         }
@@ -208,11 +208,11 @@ export const AuthProvider = ({ children }) => {
 
             showAlert(response.message, "success");
             nav("/reset-password", { replace: true });
-            
+
         } catch (error) {
 
             showAlert(error.message || "Something went wrong.", "error");
-            
+
         } finally {
 
             setLoading(false);
@@ -237,7 +237,7 @@ export const AuthProvider = ({ children }) => {
             showAlert("Your password reset session has expired.", "error");
             nav("/forgot-password", { replace: true });
             return;
-            
+
         }
 
         if (!resetForm.newPassword || !resetForm.confirmPassword) {
@@ -283,8 +283,22 @@ export const AuthProvider = ({ children }) => {
         }
     };
 
-    const logout = () => {
-        localStorage.removeItem("saystechauth")
+    const logout = async () => {
+
+        const result = await Swal.fire({
+            title: "?",
+            text: "Are you sure you want to logout?.",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonText: "Logout",
+            cancelButtonText: "Cancel"
+        });
+
+        if (result.isConfirmed) {
+            localStorage.removeItem("saystechauth")
+            nav("/login")
+        }
+
     }
 
 
