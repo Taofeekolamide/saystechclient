@@ -178,7 +178,7 @@ const Sidebar = ({ role, collapsed, setCollapsed, mobile = false, closeMobile, }
                     )}
                 </div>
 
-                <NavLink onClick={logout}
+                <button onClick={logout}
                     className={({ isActive }) => `mt-5 flex items-center ${collapsed && !mobile
                         ? "justify-center"
                         : "gap-4"
@@ -197,7 +197,7 @@ const Sidebar = ({ role, collapsed, setCollapsed, mobile = false, closeMobile, }
                             Logout
                         </span>
                     )}
-                </NavLink>
+                </button>
             </div>
         </aside>
     );
