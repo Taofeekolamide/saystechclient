@@ -1,170 +1,389 @@
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import { FaArrowLeft, FaLock, FaEye, FaEyeSlash } from "react-icons/fa";
+import { FaArrowLeft, FaLock, FaEye, FaEyeSlash, FaShieldAlt, FaArrowRight } from "react-icons/fa";
+import logo from "../../assets/logo.png";
 import { AuthContext } from "../../Context/AuthContext";
 
 const ResetPassword = () => {
-
-    const { loading, handleResetPassword, resetForm, setResetForm } = useContext(AuthContext)
+    const { loading, handleResetPassword, resetForm, setResetForm } = useContext(AuthContext);
 
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
+    const handlePasswordChange = (e) => {
+        setResetForm((prev) => ({
+            ...prev,
+            newPassword: e.target.value,
+        }));
+    };
 
-
+    const handleConfirmPasswordChange = (e) => {
+        setResetForm((prev) => ({
+            ...prev,
+            confirmPassword: e.target.value,
+        }));
+    };
 
     return (
-        <div className="min-h-screen flex bg-gray-50">
+        <div className="min-h-screen bg-white flex items-center justify-center px-6 py-10">
+            <div className="w-full max-w-[440px]">
 
-            {/* Left Side */}
+                {/* Logo */}
+                <div className="flex justify-center">
+                    <Link to="/" className="inline-block">
+                        <img
+                            src={logo}
+                            alt="Saystech Computer Hub"
+                            className="w-40 sm:w-44"
+                        />
+                    </Link>
+                </div>
 
-            <div className="hidden lg:flex w-1/2 bg-gradient-to-br from-[#0D47D9] to-[#27B6F8] items-center justify-center p-12">
+                {/* Back */}
+                <Link
+                    to="/verify-reset-code"
+                    className="
+                        inline-flex
+                        items-center
+                        gap-2
+                        mt-12
+                        text-sm
+                        font-medium
+                        text-slate-500
+                        hover:text-[#0D47D9]
+                        transition
+                    "
+                >
+                    <FaArrowLeft className="text-xs" />
+                    Back
+                </Link>
 
-                <div className="max-w-md text-white">
+                {/* Heading */}
+                <div className="mt-9">
 
-                    <h1 className="text-5xl font-bold">
-                        Create New Password
+                    <div className="
+                        flex
+                        h-14
+                        w-14
+                        items-center
+                        justify-center
+                        rounded-2xl
+                        bg-blue-50
+                        text-[#0D47D9]
+                    ">
+                        <FaLock className="text-xl" />
+                    </div>
+
+                    <p className="
+                        mt-7
+                        text-sm
+                        font-semibold
+                        text-[#0D47D9]
+                    ">
+                        ACCOUNT RECOVERY
+                    </p>
+
+                    <h1 className="
+                        mt-3
+                        text-3xl
+                        sm:text-4xl
+                        font-bold
+                        tracking-tight
+                        text-slate-900
+                    ">
+                        Create a new password
                     </h1>
 
-                    <p className="mt-6 text-lg leading-8 text-blue-100">
-                        You're almost done. Choose a strong password to secure
-                        your Saystech Computer Hub account.
+                    <p className="
+                        mt-3
+                        text-slate-500
+                        leading-7
+                    ">
+                        Choose a new password for your account. Make sure
+                        it's something secure that you can remember.
                     </p>
-
-                    <div className="mt-12 bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 p-6">
-
-                        <h3 className="text-xl font-semibold">
-                            Password Tips
-                        </h3>
-
-                        <ul className="mt-4 space-y-2 text-blue-100">
-                            <li>• At least 8 characters</li>
-                            <li>• Use uppercase & lowercase letters</li>
-                            <li>• Include numbers</li>
-                            <li>• Add special characters</li>
-                        </ul>
-
-                    </div>
 
                 </div>
 
-            </div>
+                {/* Form */}
+                <form
+                    onSubmit={(e) => handleResetPassword(e, resetForm)}
+                    className="mt-9 space-y-6"
+                >
 
-            {/* Right Side */}
+                    {/* New Password */}
+                    <div>
+                        <label className="
+                            block
+                            text-sm
+                            font-medium
+                            text-slate-700
+                            mb-2
+                        ">
+                            New password
+                        </label>
 
-            <div className="flex-1 flex items-center justify-center px-6 py-12">
+                        <div className="relative">
 
-                <div className="w-full max-w-md bg-white rounded-3xl shadow-xl p-8">
+                            <FaLock className="
+                                absolute
+                                left-4
+                                top-1/2
+                                -translate-y-1/2
+                                text-slate-400
+                                text-sm
+                            " />
 
-                    <Link
-                        to="/verify-reset-code"
-                        className="inline-flex items-center gap-2 text-[#0D47D9] hover:text-[#27B6F8]"
+                            <input
+                                type={showPassword ? "text" : "password"}
+                                value={resetForm.newPassword}
+                                onChange={handlePasswordChange}
+                                placeholder="Enter new password"
+                                required
+                                autoComplete="new-password"
+                                className="
+                                    w-full
+                                    h-12
+                                    rounded-lg
+                                    border
+                                    border-slate-300
+                                    bg-slate-50
+                                    pl-11
+                                    pr-12
+                                    text-slate-900
+                                    placeholder:text-slate-400
+                                    outline-none
+                                    transition
+                                    focus:bg-white
+                                    focus:border-[#0D47D9]
+                                    focus:ring-2
+                                    focus:ring-blue-100
+                                "
+                            />
+
+                            <button
+                                type="button"
+                                onClick={() =>
+                                    setShowPassword((prev) => !prev)
+                                }
+                                className="
+                                    absolute
+                                    right-4
+                                    top-1/2
+                                    -translate-y-1/2
+                                    text-slate-400
+                                    hover:text-slate-600
+                                    transition
+                                "
+                                aria-label={
+                                    showPassword
+                                        ? "Hide password"
+                                        : "Show password"
+                                }
+                            >
+                                {showPassword ? (
+                                    <FaEyeSlash />
+                                ) : (
+                                    <FaEye />
+                                )}
+                            </button>
+
+                        </div>
+                    </div>
+
+                    {/* Confirm Password */}
+                    <div>
+                        <label className="
+                            block
+                            text-sm
+                            font-medium
+                            text-slate-700
+                            mb-2
+                        ">
+                            Confirm new password
+                        </label>
+
+                        <div className="relative">
+
+                            <FaLock className="
+                                absolute
+                                left-4
+                                top-1/2
+                                -translate-y-1/2
+                                text-slate-400
+                                text-sm
+                            " />
+
+                            <input
+                                type={
+                                    showConfirmPassword
+                                        ? "text"
+                                        : "password"
+                                }
+                                value={resetForm.confirmPassword}
+                                onChange={handleConfirmPasswordChange}
+                                placeholder="Repeat your password"
+                                required
+                                autoComplete="new-password"
+                                className="
+                                    w-full
+                                    h-12
+                                    rounded-lg
+                                    border
+                                    border-slate-300
+                                    bg-slate-50
+                                    pl-11
+                                    pr-12
+                                    text-slate-900
+                                    placeholder:text-slate-400
+                                    outline-none
+                                    transition
+                                    focus:bg-white
+                                    focus:border-[#0D47D9]
+                                    focus:ring-2
+                                    focus:ring-blue-100
+                                "
+                            />
+
+                            <button
+                                type="button"
+                                onClick={() =>
+                                    setShowConfirmPassword((prev) => !prev)
+                                }
+                                className="
+                                    absolute
+                                    right-4
+                                    top-1/2
+                                    -translate-y-1/2
+                                    text-slate-400
+                                    hover:text-slate-600
+                                    transition
+                                "
+                                aria-label={
+                                    showConfirmPassword
+                                        ? "Hide password"
+                                        : "Show password"
+                                }
+                            >
+                                {showConfirmPassword ? (
+                                    <FaEyeSlash />
+                                ) : (
+                                    <FaEye />
+                                )}
+                            </button>
+
+                        </div>
+                    </div>
+
+                    {/* Password Requirements */}
+                    <div className="
+                        rounded-lg
+                        bg-slate-50
+                        border
+                        border-slate-100
+                        p-4
+                    ">
+                        <p className="
+                            text-xs
+                            font-semibold
+                            text-slate-700
+                            mb-2
+                        ">
+                            For a stronger password
+                        </p>
+
+                        <div className="
+                            grid
+                            grid-cols-2
+                            gap-y-2
+                            text-xs
+                            text-slate-500
+                        ">
+                            <span>• At least 8 characters</span>
+                            <span>• Uppercase letter</span>
+                            <span>• Lowercase letter</span>
+                            <span>• Number or symbol</span>
+                        </div>
+                    </div>
+
+                    {/* Submit */}
+                    <button
+                        type="submit"
+                        disabled={loading}
+                        className="
+                            group
+                            w-full
+                            h-12
+                            rounded-lg
+                            bg-[#0D47D9]
+                            text-white
+                            font-semibold
+                            flex
+                            items-center
+                            justify-center
+                            gap-3
+                            transition
+                            hover:bg-[#0b3dbb]
+                            active:scale-[0.99]
+                            disabled:opacity-60
+                            disabled:cursor-not-allowed
+                        "
                     >
-                        <FaArrowLeft />
-                        Back
-                    </Link>
+                        {loading ? (
+                            "Updating password..."
+                        ) : (
+                            <>
+                                Reset password
 
-                    <div className="mt-8 flex justify-center">
+                                <FaArrowRight className="
+                                    text-sm
+                                    transition-transform
+                                    group-hover:translate-x-1
+                                " />
+                            </>
+                        )}
+                    </button>
 
-                        <div className="w-20 h-20 rounded-full bg-gradient-to-r from-[#0D47D9] to-[#27B6F8] flex items-center justify-center">
+                </form>
 
-                            <FaLock className="text-white text-3xl" />
+                {/* Security Message */}
+                <div className="
+                    mt-8
+                    flex
+                    items-start
+                    gap-3
+                    rounded-lg
+                    bg-slate-50
+                    p-4
+                ">
+                    <FaShieldAlt className="
+                        mt-0.5
+                        text-slate-400
+                        shrink-0
+                    " />
 
-                        </div>
-
-                    </div>
-
-                    <h2 className="mt-6 text-3xl font-bold text-center text-gray-800">
-                        Reset Password
-                    </h2>
-
-                    <p className="mt-3 text-center text-gray-500">
-                        Enter your new password below.
+                    <p className="
+                        text-xs
+                        leading-5
+                        text-slate-500
+                    ">
+                        After resetting your password, you'll be able
+                        to sign in to your Saystech account with your
+                        new credentials.
                     </p>
-
-                    <form onSubmit={(e) => handleResetPassword(e, resetForm)} className="mt-8 space-y-6">
-
-                        {/* Password */}
-
-                        <div>
-
-                            <label className="block text-sm font-semibold text-gray-700 mb-2">New Password</label>
-
-                            <div className="relative">
-
-                                <input type={showPassword ? "text" : "password"} value={resetForm.newPassword} onChange={(e) => setResetForm({ ...resetForm, newPassword: e.target.value })}
-                                    placeholder="Enter new password"
-                                    className="w-full border border-gray-300 rounded-xl px-4 py-4 pr-12 focus:ring-2 focus:ring-[#27B6F8] focus:border-transparent outline-none"
-                                />
-
-                                <button type="button" onClick={() => setShowPassword(!showPassword)} className="absolute top-1/2 right-4 -translate-y-1/2 text-gray-500">
-                                    {showPassword ?
-                                        (
-                                            <FaEyeSlash />
-                                        )
-                                        :
-                                        (
-                                            <FaEye />
-                                        )
-                                    }
-                                </button>
-
-                            </div>
-
-                        </div>
-
-                        {/* Confirm Password */}
-
-                        <div>
-
-                            <label className="block text-sm font-semibold text-gray-700 mb-2">
-                                Confirm Password
-                            </label>
-
-                            <div className="relative">
-
-                                <input
-                                    type={showConfirmPassword ? "text" : "password"}
-                                    value={resetForm.confirmPassword}
-                                    onChange={(e) => setResetForm({ ...resetForm, confirmPassword: e.target.value })}
-                                    placeholder="Confirm password"
-                                    className="w-full border border-gray-300 rounded-xl px-4 py-4 pr-12 focus:ring-2 focus:ring-[#27B6F8] focus:border-transparent outline-none"
-                                />
-
-                                <button
-                                    type="button"
-                                    onClick={() =>
-                                        setShowConfirmPassword(
-                                            !showConfirmPassword
-                                        )
-                                    }
-                                    className="absolute top-1/2 right-4 -translate-y-1/2 text-gray-500"
-                                >
-                                    {showConfirmPassword ? (
-                                        <FaEyeSlash />
-                                    ) : (
-                                        <FaEye />
-                                    )}
-                                </button>
-
-                            </div>
-
-                        </div>
-
-                        <button
-                            type="submit"
-                            disabled={loading}
-                            className="w-full bg-gradient-to-r from-[#0D47D9] to-[#27B6F8] text-white py-4 rounded-xl font-semibold hover:shadow-xl transition-all duration-300 disabled:opacity-60"
-                        >
-                            {loading ? "Updating Password..." : "Reset Password"}
-                        </button>
-
-                    </form>
-
                 </div>
 
-            </div>
+                {/* Footer */}
+                <p className="
+                    text-center
+                    text-xs
+                    text-slate-400
+                    mt-10
+                ">
+                    © {new Date().getFullYear()} Saystech Computer Hub
+                </p>
 
+            </div>
         </div>
     );
 };
