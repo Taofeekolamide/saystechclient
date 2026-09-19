@@ -1,3 +1,5 @@
+import loginBg from "../../assets/reg.jpg";
+
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { FaEye, FaEyeSlash, FaEnvelope, FaLock, FaArrowRight, } from "react-icons/fa";
@@ -22,8 +24,160 @@ export default function Login() {
     return (
         <div className="min-h-screen bg-white flex">
 
+            {/* RIGHT SIDE */}
+            <div
+                className="
+        hidden lg:flex lg:w-[52%]
+        relative overflow-hidden
+        bg-[#000000] bg-cover bg-center
+    "
+                style={{
+                    backgroundImage: `url(${loginBg})`,
+                }}
+            >
+                {/* Dark overlay */}
+                <div className="absolute inset-0 bg-[#000000]/80" />
+
+                {/* Gradient overlay */}
+                <div className="
+        absolute inset-0
+        bg-gradient-to-br
+        from-[#000000]/10
+        via-[#000000]/10
+        to-[#000000]/10
+    " />
+
+                {/* Decorative circles */}
+                <div
+                    className="
+            absolute -top-40 -right-40
+            w-[600px] h-[600px]
+            rounded-full border border-white/10
+        "
+                />
+
+                <div
+                    className="
+            absolute -bottom-52 -left-52
+            w-[650px] h-[650px]
+            rounded-full border border-white/10
+        "
+                />
+
+                {/* Content */}
+                <div
+                    className="
+            relative z-10 flex flex-col justify-between
+            w-full p-14 xl:p-20
+        "
+                >
+                    <div className="max-w-lg">
+                        <div className="w-12 h-1 bg-white rounded-full mb-8" />
+
+                        <p className="
+                text-sm font-semibold tracking-[0.2em]
+                text-blue-200 uppercase
+            ">
+                            Welcome back
+                        </p>
+
+                        <h2 className="
+                mt-5 text-4xl xl:text-5xl font-bold
+                leading-[1.15] text-white
+            ">
+                            Continue learning.
+                            <br />
+                            Build something.
+                            <br />
+                            Move forward.
+                        </h2>
+
+                        <p className="
+                mt-7 text-blue-100
+                leading-8 max-w-md
+            ">
+                            Sign in to access your courses, continue your
+                            lessons, and keep building your technology skills
+                            with Saystech Computer Hub.
+                        </p>
+                    </div>
+
+                    <div className="
+            border-t border-white/20
+            pt-7 max-w-lg
+        ">
+                        <p className="text-sm text-blue-200 mb-5">
+                            Your student account gives you access to
+                        </p>
+
+                        <div className="space-y-4">
+                            <div className="flex items-center gap-4">
+                                <div className="
+                        flex h-8 w-8 items-center justify-center
+                        rounded-full bg-white/10
+                    ">
+                                    <span className="
+                            h-2 w-2 rounded-full bg-white
+                        " />
+                                </div>
+
+                                <p className="text-sm text-white">
+                                    Access your enrolled courses
+                                </p>
+                            </div>
+
+                            <div className="flex items-center gap-4">
+                                <div className="
+                        flex h-8 w-8 items-center justify-center
+                        rounded-full bg-white/10
+                    ">
+                                    <span className="
+                            h-2 w-2 rounded-full bg-white
+                        " />
+                                </div>
+
+                                <p className="text-sm text-white">
+                                    Continue your lessons
+                                </p>
+                            </div>
+
+                            <div className="flex items-center gap-4">
+                                <div className="
+                        flex h-8 w-8 items-center justify-center
+                        rounded-full bg-white/10
+                    ">
+                                    <span className="
+                            h-2 w-2 rounded-full bg-white
+                        " />
+                                </div>
+
+                                <p className="text-sm text-white">
+                                    Explore new courses
+                                </p>
+                            </div>
+
+                            <div className="flex items-center gap-4">
+                                <div className="
+                        flex h-8 w-8 items-center justify-center
+                        rounded-full bg-white/10
+                    ">
+                                    <span className="
+                            h-2 w-2 rounded-full bg-white
+                        " />
+                                </div>
+
+                                <p className="text-sm text-white">
+                                    Learn at your own pace
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
             {/* LEFT SIDE */}
-            <div className="w-full lg:w-[52%] flex items-center justify-center px-6 py-10 sm:px-10">
+            <div className="w-full lg:w-[48%] flex items-center justify-center px-6 py-10 sm:px-10">
                 <div className="w-full max-w-[440px]">
 
                     {/* Logo */}
@@ -232,78 +386,7 @@ export default function Login() {
                 </div>
             </div>
 
-            {/* RIGHT SIDE */}
-            <div className="hidden lg:flex lg:w-[48%] bg-[#0D47D9] relative overflow-hidden">
-
-                {/* Background shapes */}
-                <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full border border-white/10 translate-x-1/3 -translate-y-1/3" />
-
-                <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full border border-white/10 -translate-x-1/3 translate-y-1/3" />
-
-                <div className="relative z-10 flex flex-col justify-between w-full p-14 xl:p-20">
-
-                    {/* Small heading */}
-                    <div>
-                        <div className="w-12 h-1 bg-white rounded-full mb-8" />
-
-                        <p className="text-sm font-semibold tracking-[0.2em] text-blue-200 uppercase">
-                            Learn with confidence
-                        </p>
-
-                        <h2 className="mt-5 text-4xl xl:text-5xl font-bold text-white leading-[1.15] max-w-lg">
-                            Build skills that move you forward.
-                        </h2>
-
-                        <p className="mt-6 text-blue-100 leading-8 max-w-md">
-                            Access practical technology courses designed to
-                            help you learn useful skills, build real projects,
-                            and grow professionally.
-                        </p>
-                    </div>
-
-                    {/* Bottom information */}
-                    <div>
-                        <div className="border-t border-white/20 pt-7">
-
-                            <p className="text-sm text-blue-200 mb-4">
-                                What you can do from your student account
-                            </p>
-
-                            <div className="grid grid-cols-2 gap-x-8 gap-y-4 max-w-md">
-
-                                <div className="flex items-center gap-3">
-                                    <span className="w-2 h-2 rounded-full bg-white" />
-                                    <span className="text-sm text-white">
-                                        Browse courses
-                                    </span>
-                                </div>
-
-                                <div className="flex items-center gap-3">
-                                    <span className="w-2 h-2 rounded-full bg-white" />
-                                    <span className="text-sm text-white">
-                                        Enroll in courses
-                                    </span>
-                                </div>
-
-                                <div className="flex items-center gap-3">
-                                    <span className="w-2 h-2 rounded-full bg-white" />
-                                    <span className="text-sm text-white">
-                                        Watch lessons
-                                    </span>
-                                </div>
-
-                                <div className="flex items-center gap-3">
-                                    <span className="w-2 h-2 rounded-full bg-white" />
-                                    <span className="text-sm text-white">
-                                        Track your courses
-                                    </span>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
 
         </div>
     );
