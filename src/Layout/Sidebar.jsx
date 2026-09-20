@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { FaHome, FaBookOpen, FaUsers, FaGraduationCap, FaClipboardList, FaCertificate, FaCog, FaUser, FaSignOutAlt, FaChevronLeft, FaChevronRight, FaChevronCircleRight, FaLayerGroup, FaPlusCircle, FaPlus, } from "react-icons/fa";
+import { FaHome, FaBookOpen, FaGraduationCap, FaUser, FaSignOutAlt, FaChevronLeft, FaChevronRight, FaLayerGroup, FaPlusCircle, FaPlus, } from "react-icons/fa";
 import { useContext } from "react";
 import { AuthContext } from "../Context/AuthContext";
 import { UserContext } from "../Context/UserContext";
@@ -14,7 +14,7 @@ const Sidebar = ({ role, collapsed, setCollapsed, mobile = false, closeMobile, }
         Student: [
             {
                 title: "Dashboard",
-                path: "/me",
+                path: "/dashboard",
                 icon: FaHome,
             },
             {
@@ -24,20 +24,15 @@ const Sidebar = ({ role, collapsed, setCollapsed, mobile = false, closeMobile, }
             },
             {
                 title: "Browse Courses",
-                path: "/dashboard/courses",
+                path: "/courses",
                 icon: FaGraduationCap,
-            },
-            {
-                title: "Certificates",
-                path: "/dashboard/certificates",
-                icon: FaCertificate,
-            },
+            }
         ],
 
         Admin: [
             {
                 title: "Dashboard",
-                path: "/",
+                path: "/admin",
                 icon: FaHome,
             },
             {

@@ -5,26 +5,26 @@ import Register from "../Pages/Auth/Register"
 import VerifyEmail from "../Pages/Auth/VerifyEmail"
 import NotFound from "../Pages/NotFound"
 import ForgotPassword from "../Pages/Auth/ForgotPassword"
-import VerifyPasswordCode from "../Pages/Auth/VeriftPasswordCode"
+import VerifyPasswordCode from "../Pages/Auth/VerifyPasswordCode"
 import ResetPassword from "../Pages/Auth/ResetPassword"
 import Layout from "../Layout/Layout"
-import Dashboard from "../Pages/Student/Dashboard"
+import Dashboard from "../Pages/Student/StudentDashboard"
 import MyCourses from "../Pages/Student/MyCourses"
 import CourseList from "../Pages/Student/CourseList"
 import Profile from "../Pages/Profile"
 import { CategoryProvider } from "../Context/CourseCategoryContext"
 import CategoryDetail from "../Pages/Student/CategorDetail"
 import { CourseProvider } from "../Context/CourseContext"
-import CourseDetail from "../Pages/Student/CourseDetail"
+import CourseDetail from "../Pages/Course/CourseDetail"
 import { PaymentProvider } from "../Context/PaymentContext"
 import PaymentCallback from "../Pages/Student/PaymentCallback"
 import { EnrollmentProvider } from "../Context/EnrollmentContext"
 import CourseLearning from "../Pages/Student/CourseLearning"
 import AddCategory from "../Pages/Admin/AddCategory"
-import { AdminRoute, StudentRoute } from "./Protected"
+import { AdminRoute, ProtectedRoute, StudentRoute } from "./Protected"
 import Categories from "../Pages/Admin/Categories"
 import AddCourse from "../Pages/Admin/AddCourses"
-import Courses from "../Pages/Admin/Courses"
+import Courses from "../Pages/Course/Courses"
 import CourseInfo from "../Pages/Admin/CourseInfo"
 import AddLesson from "../Pages/Admin/AddLesson"
 import { LessonProvider } from "../Context/LessonContext"
@@ -53,13 +53,16 @@ export const AppRoutes = () => {
                                             <Route path="/verify-token" element={<VerifyPasswordCode />} />
                                             <Route path="/reset-password" element={<ResetPassword />} />
 
+                                            <Route element={<ProtectedRoute><Layout /></ProtectedRoute>}>
+                                                <Route path="/courses" element={<Courses />} />
+                                                <Route path="/course/:id" element={<CourseDetail />} />
+                                            </Route>
 
                                             <Route element={<StudentRoute><Layout /></StudentRoute>}>
                                                 <Route path="/me" element={<Dashboard />} />
                                                 <Route path="/dashboard/category/:id" element={<CategoryDetail />} />
                                                 <Route path="/dashboard/my-courses" element={<MyCourses />} />
                                                 <Route path="/dashboard/courses" element={<CourseList />} />
-                                                <Route path="/dashboard/course/:id" element={<CourseDetail />} />
                                                 <Route path="/payment/callback" element={<PaymentCallback />} />
                                                 <Route path="/dashboard/learn/:id" element={<CourseLearning />} />
                                                 <Route path="/dashboard/certificates" element={<Certificates />} />
@@ -67,13 +70,13 @@ export const AppRoutes = () => {
 
 
                                             <Route element={<AdminRoute><Layout /></AdminRoute>}>
-                                                <Route path="/" element={<AdminDashboard />} />
+                                                <Route path="/a" element={<AdminDashboard />} />
 
                                                 <Route path="/admin/add-category" element={<AddCategory />} />
                                                 <Route path="/admin/all-category" element={<Categories />} />
 
                                                 <Route path="/admin/add-course" element={<AddCourse />} />
-                                                <Route path="/admin/all-course" element={<Courses />} />
+
                                                 <Route path="/admin/course/:courseId" element={<CourseInfo />} />
 
                                                 <Route path="/admin/add-lesson/:courseId" element={<AddLesson />} />
