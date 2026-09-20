@@ -131,29 +131,6 @@ const Certificates = () => {
 
                     </div>
 
-
-                    <div className="bg-white rounded-2xl border border-gray-100 p-5 shadow-sm">
-
-                        <div className="flex items-center justify-between">
-
-                            <div>
-                                <p className="text-sm text-gray-500">
-                                    Learning Status
-                                </p>
-
-                                <h2 className="text-lg font-bold text-green-600 mt-2">
-                                    Excellent
-                                </h2>
-                            </div>
-
-                            <div className="w-11 h-11 rounded-xl bg-cyan-50 text-[#27B6F8] flex items-center justify-center">
-                                <FiCheckCircle size={21} />
-                            </div>
-
-                        </div>
-
-                    </div>
-
                 </div>
 
 

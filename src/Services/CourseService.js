@@ -7,7 +7,7 @@ const getToken = () => JSON.parse(localStorage.getItem("saystechauth"));
 const authHeaders = () => ({ Authorization: `Bearer ${getToken().accessToken}` });
 
 // GET ALL COURSES
-export const getCourses = async () => {
+export const getCourses  = async () => {
 
     const res = await fetch(baseUrl, {
         method: "GET",

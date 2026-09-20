@@ -1,6 +1,6 @@
 import { createContext, useContext, useState } from "react";
 import { forgotPassword, login, register, resendVerifyEmail, resetPassword, verifyEmail, verifyPasswordResetCode } from "../Services/AuthServices";
-import { useNavigate } from "react-router-dom";
+import { replace, useNavigate } from "react-router-dom";
 import { AlertContext } from "./AlertContext";
 import Swal from "sweetalert2";
 
@@ -297,7 +297,8 @@ export const AuthProvider = ({ children }) => {
 
         if (result.isConfirmed) {
             localStorage.removeItem("saystechauth")
-            nav("/login")
+            
+            nav("/login", { replace: true });
         }
 
     }

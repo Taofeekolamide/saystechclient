@@ -2,8 +2,8 @@ import { useContext, useEffect, useState } from "react";
 import { FaPlay, FaClock, FaBookOpen, FaUser, FaGraduationCap, FaCheckCircle, FaArrowLeft } from "react-icons/fa";
 
 import { Link, useParams } from "react-router-dom";
-import { getCourse } from "../../Services/CourseService";
-import { PaymentContext } from "../../Context/PaymentContext";
+import { getCourse } from "../Services/CourseService";
+import { PaymentContext } from "../Context/PaymentContext";
 
 
 const CourseDetail = () => {
@@ -12,18 +12,16 @@ const CourseDetail = () => {
 
     const { id } = useParams();
 
-    const { startPay } = useContext(PaymentContext)
+    const { startPay, loading } = useContext(PaymentContext)
 
     const [course, setCourse] = useState(null)
-
-    const [loading, setLoading] = useState(false)
 
     useEffect(() => {
         getCourseById(id)
     }, [id])
 
     const getCourseById = async (id) => {
-        setLoading(true);
+
         try {
 
             const response = await getCourse(id);
@@ -32,10 +30,6 @@ const CourseDetail = () => {
         } catch (error) {
 
             showAlert(error.message, "error");
-
-        } finally {
-
-            setLoading(false);
 
         }
 
@@ -256,25 +250,6 @@ const CourseDetail = () => {
 
 
                             <div className="border-t border-slate-200 mt-6 pt-6 space-y-5">
-
-                                <div className="flex justify-between">
-
-                                    <div className="flex items-center gap-3 text-slate-500">
-
-                                        <FaClock />
-
-                                        Duration
-
-                                    </div>
-
-                                    <span className="font-medium text-slate-800">
-
-                                        {course?.durationInHours} hours
-
-                                    </span>
-
-                                </div>
-
 
                                 <div className="flex justify-between">
 

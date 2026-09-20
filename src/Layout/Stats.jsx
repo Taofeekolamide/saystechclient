@@ -24,17 +24,11 @@ const Stats = () => {
             value: completedEnrollments.length,
             icon: FaCertificate,
             bg: "from-amber-500 to-orange-500",
-        },
-        {
-            title: "Learning Hours",
-            value: 0,
-            icon: FaClock,
-            bg: "from-violet-500 to-purple-600",
-        },
+        }
     ];
 
     return (
-        <section className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
+        <section className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
 
             {stats.map((stat) => {
 

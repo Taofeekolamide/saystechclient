@@ -19,13 +19,8 @@ const Sidebar = ({ role, collapsed, setCollapsed, mobile = false, closeMobile, }
             },
             {
                 title: "My Courses",
-                path: "/dashboard/my-courses",
+                path: "/my-courses",
                 icon: FaBookOpen,
-            },
-            {
-                title: "Browse Courses",
-                path: "/courses",
-                icon: FaGraduationCap,
             }
         ],
 
@@ -46,11 +41,6 @@ const Sidebar = ({ role, collapsed, setCollapsed, mobile = false, closeMobile, }
                 icon: FaPlusCircle,
             },
             {
-                title: "Courses",
-                path: "/admin/all-course",
-                icon: FaGraduationCap,
-            },
-            {
                 title: "Add Course",
                 path: "/admin/add-course",
                 icon: FaPlus,
@@ -58,6 +48,11 @@ const Sidebar = ({ role, collapsed, setCollapsed, mobile = false, closeMobile, }
         ],
 
         Common: [
+            {
+                title: "Browse Courses",
+                path: "/courses",
+                icon: FaGraduationCap,
+            },
             {
                 title: "Profile",
                 path: "/dashboard/profile",

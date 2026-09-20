@@ -15,7 +15,7 @@ import Profile from "../Pages/Profile"
 import { CategoryProvider } from "../Context/CourseCategoryContext"
 import CategoryDetail from "../Pages/Student/CategorDetail"
 import { CourseProvider } from "../Context/CourseContext"
-import CourseDetail from "../Pages/Course/CourseDetail"
+import CourseDetail from "../Pages/CourseDetail"
 import { PaymentProvider } from "../Context/PaymentContext"
 import PaymentCallback from "../Pages/Student/PaymentCallback"
 import { EnrollmentProvider } from "../Context/EnrollmentContext"
@@ -52,41 +52,48 @@ export const AppRoutes = () => {
                                             <Route path="/forgot-password" element={<ForgotPassword />} />
                                             <Route path="/verify-token" element={<VerifyPasswordCode />} />
                                             <Route path="/reset-password" element={<ResetPassword />} />
+                                            <Route path="*" element={<NotFound />} />
+
 
                                             <Route element={<ProtectedRoute><Layout /></ProtectedRoute>}>
                                                 <Route path="/courses" element={<Courses />} />
-                                                <Route path="/course/:id" element={<CourseDetail />} />
+                                                {/* Profile */}
+                                                <Route path="/profile" element={<Profile />} />
                                             </Route>
 
+
                                             <Route element={<StudentRoute><Layout /></StudentRoute>}>
+                                                {/* Dashboard */}
                                                 <Route path="/me" element={<Dashboard />} />
+                                                {/* Course Details */}
+                                                <Route path="/courses/:id" element={<CourseDetail />} />
+                                                {/* Category */}
                                                 <Route path="/dashboard/category/:id" element={<CategoryDetail />} />
+                                                {/* Purchased Courses */}
                                                 <Route path="/dashboard/my-courses" element={<MyCourses />} />
-                                                <Route path="/dashboard/courses" element={<CourseList />} />
-                                                <Route path="/payment/callback" element={<PaymentCallback />} />
+                                                {/* Learning */}
                                                 <Route path="/dashboard/learn/:id" element={<CourseLearning />} />
+                                                {/* Payment */}
+                                                <Route path="/payment/callback" element={<PaymentCallback />} />
+                                                {/* Certificates */}
                                                 <Route path="/dashboard/certificates" element={<Certificates />} />
+
                                             </Route>
 
 
                                             <Route element={<AdminRoute><Layout /></AdminRoute>}>
-                                                <Route path="/a" element={<AdminDashboard />} />
-
+                                                {/* Admin Dashboard */}
+                                                <Route path="/admin" element={<AdminDashboard />} />
+                                                {/* Categories */}
                                                 <Route path="/admin/add-category" element={<AddCategory />} />
                                                 <Route path="/admin/all-category" element={<Categories />} />
-
+                                                {/* Courses */}
                                                 <Route path="/admin/add-course" element={<AddCourse />} />
-
                                                 <Route path="/admin/course/:courseId" element={<CourseInfo />} />
-
+                                                <Route path="/course/edit/:courseId" element={<CourseInfo />} />
+                                                {/* Lessons */}
                                                 <Route path="/admin/add-lesson/:courseId" element={<AddLesson />} />
                                             </Route>
-
-                                            <Route element={<Layout />}>
-                                                <Route path="/dashboard/profile" element={<Profile />} />
-                                            </Route>
-
-                                            <Route path="*" element={<NotFound />} />
                                         </Routes>
 
 

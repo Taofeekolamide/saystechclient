@@ -11,10 +11,16 @@ const VerifyPasswordCode = () => {
 
     const storedEmail = localStorage.getItem("passwordResetEmail");
 
+    let email = "";
+
+    try {
+        email = storedEmail ? JSON.parse(storedEmail) : "";
+    } catch {
+        email = storedEmail || "";
+    }
 
     return (
         <div className="min-h-screen bg-white flex items-center justify-center px-6 py-10">
-
             <div className="w-full max-w-[440px]">
 
                 {/* Logo */}
@@ -44,18 +50,15 @@ const VerifyPasswordCode = () => {
                     "
                 >
                     <FaArrowLeft className="text-xs" />
-                    Back
+                    Back to forgot password
                 </Link>
 
                 {/* Heading */}
                 <div className="mt-9">
 
                     <div className="
-                        flex
-                        h-14
-                        w-14
-                        items-center
-                        justify-center
+                        flex h-14 w-14
+                        items-center justify-center
                         rounded-2xl
                         bg-blue-50
                         text-[#0D47D9]
@@ -103,7 +106,6 @@ const VerifyPasswordCode = () => {
                             {email}
                         </p>
                     )}
-
                 </div>
 
                 {/* Form */}
@@ -113,8 +115,6 @@ const VerifyPasswordCode = () => {
                     }
                     className="mt-9"
                 >
-
-                    {/* Code */}
                     <div>
                         <label className="
                             block
@@ -192,7 +192,6 @@ const VerifyPasswordCode = () => {
                         ) : (
                             <>
                                 Verify code
-
                                 <FaArrowRight className="
                                     text-sm
                                     transition-transform
@@ -201,12 +200,10 @@ const VerifyPasswordCode = () => {
                             </>
                         )}
                     </button>
-
                 </form>
 
                 {/* Resend */}
                 <div className="mt-7 text-center">
-
                     <p className="text-sm text-slate-500">
                         Didn't receive the code?
                     </p>
@@ -224,7 +221,6 @@ const VerifyPasswordCode = () => {
                     >
                         Resend code
                     </button>
-
                 </div>
 
                 {/* Security */}
