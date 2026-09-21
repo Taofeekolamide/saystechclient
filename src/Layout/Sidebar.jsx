@@ -145,9 +145,9 @@ const Sidebar = ({ role, collapsed, setCollapsed, mobile = false, closeMobile, }
 
             <div className="border-t border-slate-800 p-5">
 
-                {/* <div className={`flex items-center ${collapsed && !mobile ? "justify-center" : "gap-3"}`}>
+                <div className={`flex items-center ${collapsed && !mobile ? "justify-center" : "gap-3"}`}>
                     <div className="w-12 h-12 rounded-full bg-gradient-to-r from-[#0D47D9] to-[#27B6F8] flex items-center justify-center text-white font-bold text-lg flex-shrink-0">
-                        {user?.firstName?.[0]?.toUpperCase() || "U"}
+                        {user?.firstName?.[0]?.toUpperCase() || auth?.email?.[0]?.toUpperCase()}
                     </div>
 
                     {(!collapsed || mobile) && (
@@ -161,7 +161,7 @@ const Sidebar = ({ role, collapsed, setCollapsed, mobile = false, closeMobile, }
                             </p>
                         </div>
                     )}
-                </div> */}
+                </div>
 
                 <NavLink to="/profile" onClick={() => mobile && closeMobile()}
                     className={({ isActive }) => `flex items-center ${collapsed && !mobile
@@ -175,7 +175,7 @@ const Sidebar = ({ role, collapsed, setCollapsed, mobile = false, closeMobile, }
                                 `
                     }
                 >
-                    <Icon className="text-lg flex-shrink-0" />
+                    <FaUser className="text-lg flex-shrink-0" />
 
                     {(!collapsed || mobile) && (
                         <span className="font-medium">
