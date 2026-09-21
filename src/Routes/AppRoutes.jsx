@@ -70,7 +70,7 @@ export const AppRoutes = () => {
                                                 {/* Purchased Courses */}
                                                 <Route path="/my-courses" element={<MyCourses />} />
                                                 {/* Learning */}
-                                                <Route path="/dashboard/learn/:id" element={<CourseLearning />} />
+                                                <Route path="/learn/:id" element={<CourseLearning />} />
                                                 {/* Payment */}
                                                 <Route path="/payment/callback" element={<PaymentCallback />} />
                                                 {/* Certificates 

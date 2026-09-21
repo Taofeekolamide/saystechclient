@@ -1,11 +1,6 @@
 import { useMemo } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import {
-    FaArrowRight,
-    FaBookOpen,
-    FaClock,
-    FaPlay,
-} from "react-icons/fa";
+import { FaArrowRight, FaBookOpen, FaClock, FaPlay, } from "react-icons/fa";
 
 const ContinueLearning = ({ enrollments = [] }) => {
     const navigate = useNavigate();
@@ -73,8 +68,7 @@ const ContinueLearning = ({ enrollments = [] }) => {
                         appear here.
                     </p>
 
-                    <Link
-                        to="/courses"
+                    <Link to="/courses"
                         className="mt-5 inline-flex h-10 items-center gap-2 rounded-lg bg-[#0D47D9] px-4 text-sm font-semibold text-white transition hover:bg-[#0b3dbb]"
                     >
                         Browse Courses

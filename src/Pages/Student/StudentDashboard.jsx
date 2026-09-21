@@ -37,7 +37,7 @@ const StudentDashboard = () => {
     const certificates = [];
 
     return (
-        <main className="w-full bg-[#f6f8fc]">
+        <main className="w-full">
 
             <div className="mx-auto w-full max-w-7xl px-5 py-8 sm:px-6 lg:px-8">
 

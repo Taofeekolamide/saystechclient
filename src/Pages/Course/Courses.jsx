@@ -1,10 +1,11 @@
 import { useContext, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { FaArrowRight, FaBookOpen, FaEdit, FaEye, FaFilter, FaSearch, FaTimes, FaTrash, } from "react-icons/fa";
+import { FaArrowRight, FaBookOpen, FaFilter, FaSearch, FaTimes } from "react-icons/fa";
 
 import { CourseContext } from "../../Context/CourseContext";
 import { CategoryContext } from "../../Context/CourseCategoryContext";
 import { AuthContext } from "../../Context/AuthContext";
+import { CourseCardTwo } from "../../Components/CourseCardTwo";
 
 const Courses = () => {
     const navigate = useNavigate();
@@ -67,327 +68,26 @@ const Courses = () => {
         setSelectedCategory("");
     };
 
-    const getCategoryName = (course) => {
-        if (!course?.category) {
-            return null;
-        }
-
-        if (typeof course.category === "object") {
-            return course.category?.name;
-        }
-
-        return course.category;
-    };
-
-    const getLessonsCount = (course) => {
-        return (
-            course?.lessons?.length ??
-            course?.lessonCount ??
-            0
-        );
-    };
-
-    const getDuration = (course) => {
-        return (
-            course?.duration ||
-            course?.totalDuration ||
-            null
-        );
-    };
-
-
-
-
-    /* COURSE CARD */
-
-    const CourseCard = ({ course }) => {
-        const category = getCategoryName(course);
-        const lessons = getLessonsCount(course);
-        const duration = getDuration(course);
-
-        return (
-            <article
-                className="
-                    group overflow-hidden
-                    rounded-2xl
-                    border border-slate-200
-                    bg-white
-                    transition-all duration-200
-                    hover:-translate-y-1
-                    hover:border-slate-300
-                    hover:shadow-lg
-                "
-            >
-
-                {/* Thumbnail */}
-                <div className="
-                    relative h-52
-                    overflow-hidden
-                    bg-slate-100
-                ">
-
-                    {course.thumbnail ? (
-                        <img src={course.thumbnail} alt={course.title}
-                            className="
-                                h-full w-full
-                                object-cover
-                                transition-transform
-                                duration-500
-                                group-hover:scale-105
-                            "
-                        />
-                    ) : (
-                        <div className="
-                            flex h-full w-full
-                            items-center justify-center
-                            bg-slate-100
-                        ">
-                            <FaBookOpen
-                                className="text-3xl text-slate-300"
-                            />
-                        </div>
-                    )}
-
-                    {/* Image overlay */}
-                    <div className="
-                        pointer-events-none
-                        absolute inset-0
-                        bg-gradient-to-t
-                        from-black/30
-                        via-transparent
-                        to-transparent
-                    " />
-
-
-                    {/* Category */}
-                    {category && (
-                        <div className="
-                            absolute left-4 top-4
-                        ">
-                            <span className="
-                                inline-flex
-                                rounded-full
-                                bg-white/95
-                                px-3 py-1.5
-                                text-[11px]
-                                font-bold
-                                uppercase
-                                tracking-wide
-                                text-slate-700
-                                shadow-sm
-                            ">
-                                {category}
-                            </span>
-                        </div>
-                    )}
-
-
-                    {/* Admin actions */}
-                    {isAdmin && (
-                        <>
-
-                            <div className="
-                            absolute right-3 top-3
-                            flex items-center gap-1
-                        ">
-
-                                <button
-                                    type="button"
-                                    title="Edit course"
-                                    onClick={() => navigate(`/admin/course/${course.id}/edit`)}
-                                    className=" flex h-9 w-9 items-center justify-center rounded-lg bg-white/95 text-slate-600 shadow-sm transition hover:bg-white hover:text-[#0D47D9]"    >
-                                    <FaEdit size={12} />
-                                </button >
-
-                                <button
-                                    type="button"
-                                    title="Delete course"
-                                    onClick={() =>
-                                        handleDelete(course)
-                                    }
-                                    className="
-                                    flex h-9 w-9
-                                    items-center justify-center
-                                    rounded-lg
-                                    bg-white/95
-                                    text-slate-600
-                                    shadow-sm
-                                    transition
-                                    hover:bg-white
-                                    hover:text-red-600
-                                "
-                                >
-                                    <FaTrash size={11} />
-                                </button>
-
-                            </div >
-
-                        </>
-                    )}
-
-                </div >
-
-
-                {/* Content */}
-                < div className="p-5" >
-
-                    {/* Title */}
-                    < h3 className="min-h-[52px] line-clamp-2 text-[17px] font-bold leading-6 text-slate-900 ">
-                        {course.title}
-                    </h3 >
-
-
-                    {/* Description */}
-                    {
-                        course.description && (
-                            <p className="
-                            mt-2
-                            line-clamp-2
-                            text-sm
-                            leading-5
-                            text-slate-500
-                        ">
-                                {course.description}
-                            </p>
-                        )
-                    }
-
-
-                    {/* Metadata */}
-                    <div className="
-                        mt-5
-                        flex items-center
-                        gap-4
-                        border-t
-                        border-slate-100
-                        pt-4
-                        text-xs
-                        text-slate-500
-                    ">
-
-                        <span className="
-                            flex items-center gap-1.5
-                        ">
-                            <FaBookOpen
-                                className="text-slate-400"
-                            />
-
-                            {lessons}{" "}
-                            {lessons === 1
-                                ? "lesson"
-                                : "lessons"}
-                        </span>
-
-
-                        {duration && (
-                            <>
-                                <span className="
-                                    h-1 w-1
-                                    rounded-full
-                                    bg-slate-300
-                                " />
-
-                                <span>
-                                    {duration}
-                                </span>
-                            </>
-                        )}
-
-                    </div>
-
-
-                    {/* Action */}
-                    <div className="mt-5">
-
-                        {isAdmin ? (
-
-                            <button
-                                type="button"
-                                onClick={() =>
-                                    navigate(`/admin/course/${course.id}`)
-                                }
-                                className="
-                                    flex h-11 w-full
-                                    items-center
-                                    justify-center
-                                    gap-2
-                                    rounded-lg
-                                    bg-slate-900
-                                    text-sm
-                                    font-semibold
-                                    text-white
-                                    transition
-                                    hover:bg-slate-800
-                                "
-                            >
-                                <FaEye size={13} />
-                                Manage Course
-                            </button>
-
-                        ) : (
-
-                            <button
-                                type="button"
-                                onClick={() =>
-                                    navigate(
-                                        `/dashboard/courses/${course.id}`
-                                    )
-                                }
-                                className="
-                                    flex h-11 w-full
-                                    items-center
-                                    justify-center
-                                    gap-2
-                                    rounded-lg
-                                    bg-[#0D47D9]
-                                    text-sm
-                                    font-semibold
-                                    text-white
-                                    transition
-                                    hover:bg-[#0b3dbb]
-                                "
-                            >
-                                View Course
-                                <FaArrowRight size={11} />
-                            </button>
-
-                        )}
-
-                    </div>
-
-                </div >
-
-            </article >
-        );
-    };
-
 
     return (
         <div className="
             min-h-screen
-            bg-[#f7f9fc]
         ">
 
-            {/* =====================================================
-                PAGE HEADER
-            ====================================================== */}
+            {/* PAGE HEADER */}
 
-            <header className="
+            <header className="p-6 sm:p-7 mx-auto
+                    max-w-7xl
                 border-b
                 border-slate-200
-                bg-white
-            ">
-
-                <div className="
-                    mx-auto
-                    max-w-7xl
-                    px-5
+                px-5
                     py-10
                     sm:px-6
                     lg:px-8
-                ">
+            ">
 
-                    <div className="
+
+                <div className="
                         flex
                         flex-col
                         gap-6
@@ -396,48 +96,48 @@ const Courses = () => {
                         lg:justify-between
                     ">
 
-                        <div className="max-w-2xl">
+                    <div className="max-w-2xl">
 
-                            <div className="
+                        <div className="
                                 mb-3
                                 flex items-center gap-2
                             ">
 
-                                <span className="
+                            <span className="
                                     h-2 w-2
                                     rounded-full
                                     bg-[#0D47D9]"
-                                />
+                            />
 
-                                <span className="
+                            <span className="
                                     text-xs
                                     font-bold
                                     uppercase
                                     tracking-[0.14em]
                                 text-[#0D47D9]
                                 ">
-                                    {isAdmin
-                                        ? "Course Management"
-                                        : "Learning Library"}
-                                </span>
+                                {isAdmin
+                                    ? "Course Management"
+                                    : "Learning Library"}
+                            </span>
 
-                            </div>
+                        </div>
 
 
-                            <h1 className="
+                        <h1 className="
                                 text-3xl
                                 font-bold
                                 tracking-tight
                                 text-slate-950
                                 sm:text-4xl
                             ">
-                                {isAdmin
-                                    ? "Courses"
-                                    : "Find your next course"}
-                            </h1>
+                            {isAdmin
+                                ? "Courses"
+                                : "Find your next course"}
+                        </h1>
 
 
-                            <p className="
+                        <p className="
                                 mt-3
                                 max-w-xl
                                 text-sm
@@ -445,23 +145,23 @@ const Courses = () => {
                                 text-slate-500
                                 sm:text-base
                             ">
-                                {isAdmin
-                                    ? "Create, organize and manage the courses available on your learning platform."
-                                    : "Explore courses designed to help you build practical skills and keep learning at your own pace."}
-                            </p>
+                            {isAdmin
+                                ? "Create, organize and manage the courses available on your learning platform."
+                                : "Explore courses designed to help you build practical skills and keep learning at your own pace."}
+                        </p>
 
-                        </div>
+                    </div>
 
 
-                        {isAdmin && (
-                            <button
-                                type="button"
-                                onClick={() =>
-                                    navigate(
-                                        "/admin/add-course"
-                                    )
-                                }
-                                className="
+                    {isAdmin && (
+                        <button
+                            type="button"
+                            onClick={() =>
+                                navigate(
+                                    "/admin/add-course"
+                                )
+                            }
+                            className="
                                     inline-flex
                                     h-11
                                     shrink-0
@@ -481,13 +181,11 @@ const Courses = () => {
                                     focus:ring-4
                                     focus:ring-blue-100
                                 "
-                            >
-                                <FaPlus size={12} />
-                                Create Course
-                            </button>
-                        )}
-
-                    </div>
+                        >
+                            <FaPlus size={12} />
+                            Create Course
+                        </button>
+                    )}
 
                 </div>
 
@@ -787,9 +485,7 @@ const Courses = () => {
             </section >
 
 
-            {/* =====================================================
-                COURSE CONTENT
-            ====================================================== */}
+            {/* COURSE CONTENT */}
 
             < main className="mx-auto max-w-7xl px-5 py-8 sm:px-6 lg:px-8 lg:py-10 ">
 
@@ -1062,10 +758,7 @@ const Courses = () => {
 
                             {filteredCourses.map(
                                 (course) => (
-                                    <CourseCard
-                                        key={course.id}
-                                        course={course}
-                                    />
+                                    <CourseCardTwo key={course.id} course={course} isAdmin={isAdmin} />
                                 )
                             )}
 
