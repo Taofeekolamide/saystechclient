@@ -5,7 +5,7 @@ import { FaArrowRight, FaBookOpen, FaFilter, FaSearch, FaTimes } from "react-ico
 import { CourseContext } from "../../Context/CourseContext";
 import { CategoryContext } from "../../Context/CourseCategoryContext";
 import { AuthContext } from "../../Context/AuthContext";
-import { CourseCardTwo } from "../../Components/CourseCardTwo";
+import { CourseCardOne } from "../../Components/CourseCardTwo";
 
 const Courses = () => {
     const navigate = useNavigate();
@@ -758,7 +758,7 @@ const Courses = () => {
 
                             {filteredCourses.map(
                                 (course) => (
-                                    <CourseCardTwo key={course.id} course={course} isAdmin={isAdmin} />
+                                    <CourseCardOne key={course.id} course={course} isAdmin={isAdmin} />
                                 )
                             )}
 

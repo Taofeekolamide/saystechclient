@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { FiBookOpen, FiArrowRight } from "react-icons/fi";
 
 import { EnrollmentContext } from "../../Context/EnrollmentContext";
-import { EnrollmentCard } from "../../Components/EnrollmentCard";
+import EnrollmentCard from "../../Components/EnrollmentCard";
 
 const MyCourses = () => {
     const { enrollments = [], loading } = useContext(EnrollmentContext);
