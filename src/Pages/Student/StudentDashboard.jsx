@@ -4,11 +4,11 @@ import { AuthContext } from "../../Context/AuthContext";
 import { EnrollmentContext } from "../../Context/EnrollmentContext";
 import { UserContext } from "../../Context/UserContext";
 
-import RecentActivity from "./Dashboard/RecentActivity";
 import Welcome from "../../Layout/Welcome";
 import ProfileCompletion from "../../Layout/ProfileCompletion";
 import LearningStats from "../../Layout/LearningStats";
 import Courses from "../Course/Courses";
+import RecentActivity from "../../Layout/RecentActivity";
 
 const StudentDashboard = () => {
     const { user: authUser } = useContext(AuthContext);
