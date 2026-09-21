@@ -9,6 +9,7 @@ import ProfileCompletion from "../../Layout/ProfileCompletion";
 import LearningStats from "../../Layout/LearningStats";
 import Courses from "../Course/Courses";
 import RecentActivity from "../../Layout/RecentActivity";
+import ContinueLearning from "../../Layout/ContinueLearning";
 
 const StudentDashboard = () => {
     const { user: authUser } = useContext(AuthContext);
