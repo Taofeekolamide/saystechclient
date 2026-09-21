@@ -55,7 +55,7 @@ const Sidebar = ({ role, collapsed, setCollapsed, mobile = false, closeMobile, }
             },
             {
                 title: "Profile",
-                path: "/dashboard/profile",
+                path: "/profile",
                 icon: FaUser,
             }
         ],
