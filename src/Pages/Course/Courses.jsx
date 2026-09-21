@@ -5,7 +5,7 @@ import { FaArrowRight, FaBookOpen, FaFilter, FaSearch, FaTimes } from "react-ico
 import { CourseContext } from "../../Context/CourseContext";
 import { CategoryContext } from "../../Context/CourseCategoryContext";
 import { AuthContext } from "../../Context/AuthContext";
-import { CourseCardOne } from "../../Components/CourseCardTwo";
+import { CourseCardOne } from "../../Components/CourseCardOne";
 
 const Courses = () => {
     const navigate = useNavigate();
