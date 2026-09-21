@@ -1,10 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import {
-    FaArrowRight,
-    FaBookOpen,
-    FaCheckCircle,
-    FaPlay,
-} from "react-icons/fa";
+import { FaArrowRight, FaBookOpen, FaCheckCircle, FaPlay, } from "react-icons/fa";
 
 const MyCourses = ({ enrollments = [] }) => {
     const navigate = useNavigate();
@@ -54,7 +49,7 @@ const MyCourses = ({ enrollments = [] }) => {
 
                 {enrollments.length > 0 && (
                     <Link
-                        to="/dashboard/my-courses"
+                        to="/my-courses"
                         className="flex items-center gap-2 text-sm font-semibold text-[#0D47D9] hover:underline"
                     >
                         View all
@@ -83,7 +78,7 @@ const MyCourses = ({ enrollments = [] }) => {
                     </p>
 
                     <Link
-                        to="/dashboard/courses"
+                        to="/courses"
                         className="mt-5 inline-flex h-10 items-center gap-2 rounded-lg bg-[#0D47D9] px-4 text-sm font-semibold text-white transition hover:bg-[#0b3dbb]"
                     >
                         Browse Courses

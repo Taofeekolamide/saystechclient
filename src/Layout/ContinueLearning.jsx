@@ -74,7 +74,7 @@ const ContinueLearning = ({ enrollments = [] }) => {
                     </p>
 
                     <Link
-                        to="/dashboard/courses"
+                        to="/courses"
                         className="mt-5 inline-flex h-10 items-center gap-2 rounded-lg bg-[#0D47D9] px-4 text-sm font-semibold text-white transition hover:bg-[#0b3dbb]"
                     >
                         Browse Courses
@@ -122,7 +122,7 @@ const ContinueLearning = ({ enrollments = [] }) => {
                 </div>
 
                 <Link
-                    to="/dashboard/my-courses"
+                    to="/my-courses"
                     className="hidden items-center gap-2 text-sm font-semibold text-[#0D47D9] hover:underline sm:flex"
                 >
                     View all

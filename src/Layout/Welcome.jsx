@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { FaArrowRight, FaBookOpen, FaUserCircle, } from "react-icons/fa";
 
 const Welcome = ({ user }) => {
-    
+
     const getFirstName = () => {
         const name =
             user?.firstName ||
@@ -36,7 +36,7 @@ const Welcome = ({ user }) => {
                 <div className="flex flex-wrap items-center gap-3">
 
                     <Link
-                        to="/dashboard/courses"
+                        to="/courses"
                         className="inline-flex h-11 items-center gap-2 rounded-lg bg-[#0D47D9] px-5 text-sm font-semibold text-white transition hover:bg-[#0b3dbb]"
                     >
                         <FaBookOpen size={13} />
@@ -45,7 +45,7 @@ const Welcome = ({ user }) => {
                     </Link>
 
                     <Link
-                        to="/dashboard/profile"
+                        to="/profile"
                         className="inline-flex h-11 items-center gap-2 rounded-lg border border-slate-200 bg-white px-4 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
                     >
                         <FaUserCircle size={16} />
