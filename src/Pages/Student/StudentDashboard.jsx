@@ -10,6 +10,7 @@ import LearningStats from "../../Layout/LearningStats";
 import Courses from "../Course/Courses";
 import RecentActivity from "../../Layout/RecentActivity";
 import ContinueLearning from "../../Layout/ContinueLearning";
+import MyCourses from "../../Layout/MyCourses";
 
 const StudentDashboard = () => {
     const { user: authUser } = useContext(AuthContext);
@@ -61,7 +62,7 @@ const StudentDashboard = () => {
 
 
                 {/* My Courses */}
-                <Courses enrollments={enrollments} />
+                <MyCourses enrollments={enrollments} />
 
 
                 {/* Recent Activity */}
