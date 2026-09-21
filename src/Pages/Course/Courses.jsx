@@ -665,7 +665,6 @@ const Courses = () => {
                                 h-16 w-16
                                 items-center
                                 justify-center
-                                rounded-full
                                 bg-slate-100
                             ">
                                 <FaBookOpen
