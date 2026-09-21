@@ -1,95 +1,62 @@
-import { useContext } from "react";
-import { FaBookReader } from "react-icons/fa";
-import { EnrollmentContext } from "../Context/EnrollmentContext";
-import { useNavigate } from "react-router-dom";
-import { UserContext } from "../Context/UserContext";
+import { Link } from "react-router-dom";
+import { FaArrowRight, FaBookOpen, FaUserCircle, } from "react-icons/fa";
 
-const Welcome = () => {
+const Welcome = ({ user }) => {
+    
+    const getFirstName = () => {
+        const name =
+            user?.firstName ||
+            user?.name ||
+            user?.fullName ||
+            user?.email?.split("@")[0] ||
+            "Student";
 
-    const { enrollments, completedEnrollments } = useContext(EnrollmentContext)
-    const { user } = useContext(UserContext)
-
-    const nav = useNavigate()
-
-    const today = new Date().toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric", year: "numeric", });
-    const hour = new Date().getHours();
-    const greeting = hour < 12 ? "Good Morning" : hour < 18 ? "Good Afternoon" : "Good Evening";
+        return name.split(" ")[0];
+    };
 
     return (
-
-        <section className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-[#0D47D9] via-[#1565F5] to-[#27B6F8] text-white p-5 md:p-10">
-
-            {/* Background circles */}
-
-            <div className="absolute -top-16 -right-16 w-64 h-64 bg-white/10 rounded-full"></div>
-
-            <div className="absolute -bottom-24 -left-20 w-72 h-72 bg-white/5 rounded-full"></div>
-
-            <div className="relative flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
-
-                {/* Left */}
+        <section className="mb-8">
+            <div className="flex flex-col gap-5 rounded-2xl border border-slate-200 bg-white p-6 sm:p-7 lg:flex-row lg:items-center lg:justify-between">
 
                 <div>
-
-                    <p className="text-blue-100 text-sm tracking-wide">
-
-                        {today}
-
+                    <p className="text-sm font-semibold uppercase tracking-wide text-[#0D47D9]">
+                        Student Dashboard
                     </p>
 
-                    <h1 className="mt-3 text-3xl md:text-5xl font-bold leading-tight">
-
-                        {greeting}, {user?.firstName} 👋
-
+                    <h1 className="mt-2 text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
+                        Welcome back, {getFirstName()}.
                     </h1>
 
-                    <p className="mt-4 max-w-2xl text-blue-100 text-lg leading-8">
-
-                        Welcome back to <span className="font-semibold text-white">
-                            Saystech Computer Hub
-                        </span>.
-                        Continue your learning journey and stay one step closer
-                        to becoming a tech professional.
-
+                    <p className="mt-2 max-w-xl text-sm leading-6 text-slate-500">
+                        Continue your learning journey and pick up where
+                        you left off.
                     </p>
-
-                    <div className="flex flex-wrap gap-4 mt-8">
-
-                        {enrollments.length > 0 &&
-                            <button onClick={() => nav(`/dashboard/learn/${enrollments[0]?.courseId}`)} className="bg-white text-[#0D47D9] font-semibold px-6 py-3 rounded-xl hover:scale-105 transition">
-                                Continue Learning
-                            </button>
-                        }
-
-
-                        <button onClick={() => nav("/dashboard/courses")} className="border border-white/40 px-6 py-3 rounded-xl hover:bg-white/10 transition">
-
-                            Browse Courses
-
-                        </button>
-
-                    </div>
-
                 </div>
 
-                {/* Right */}
+                <div className="flex flex-wrap items-center gap-3">
 
-                <div className="hidden lg:flex items-center justify-center">
+                    <Link
+                        to="/dashboard/courses"
+                        className="inline-flex h-11 items-center gap-2 rounded-lg bg-[#0D47D9] px-5 text-sm font-semibold text-white transition hover:bg-[#0b3dbb]"
+                    >
+                        <FaBookOpen size={13} />
+                        Browse Courses
+                        <FaArrowRight size={11} />
+                    </Link>
 
-                    <div className="w-44 h-44 rounded-full bg-white/15 backdrop-blur-md flex items-center justify-center">
-
-                        <FaBookReader className="text-7xl text-white" />
-
-                    </div>
+                    <Link
+                        to="/dashboard/profile"
+                        className="inline-flex h-11 items-center gap-2 rounded-lg border border-slate-200 bg-white px-4 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
+                    >
+                        <FaUserCircle size={16} />
+                        Profile
+                    </Link>
 
                 </div>
 
             </div>
-
         </section>
-
     );
-
 };
 
 export default Welcome;

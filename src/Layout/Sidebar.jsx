@@ -14,7 +14,7 @@ const Sidebar = ({ role, collapsed, setCollapsed, mobile = false, closeMobile, }
         Student: [
             {
                 title: "Dashboard",
-                path: "/dashboard",
+                path: "/me",
                 icon: FaHome,
             },
             {
@@ -44,7 +44,7 @@ const Sidebar = ({ role, collapsed, setCollapsed, mobile = false, closeMobile, }
                 title: "Add Course",
                 path: "/admin/add-course",
                 icon: FaPlus,
-            },
+            }
         ],
 
         Common: [

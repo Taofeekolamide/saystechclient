@@ -68,7 +68,7 @@ export const AppRoutes = () => {
                                                 {/* Course Details */}
                                                 <Route path="/courses/:id" element={<CourseDetail />} />
                                                 {/* Category */}
-                                                <Route path="/dashboard/category/:id" element={<CategoryDetail />} />
+                                                <Route path="/dashboacategory/:id" element={<CategoryDetail />} />
                                                 {/* Purchased Courses */}
                                                 <Route path="/dashboard/my-courses" element={<MyCourses />} />
                                                 {/* Learning */}

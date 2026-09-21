@@ -1,64 +1,72 @@
-import { useContext } from "react";
+import { useContext, useMemo } from "react";
 
+import { AuthContext } from "../../Context/AuthContext";
 import { EnrollmentContext } from "../../Context/EnrollmentContext";
 import { UserContext } from "../../Context/UserContext";
 
-// import Welcome from ".../Layout/Welcome";
-// import ProfileCompletion from "./components/ProfileCompletion";
-// import LearningStats from "./components/LearningStats";
-// import ContinueLearning from "./components/ContinueLearning";
-// import MyCourses from "./components/MyCourses";
-// import RecentActivity from "./components/RecentActivity";
+import RecentActivity from "./Dashboard/RecentActivity";
+import Welcome from "../../Layout/Welcome";
+import ProfileCompletion from "../../Layout/ProfileCompletion";
+import LearningStats from "../../Layout/LearningStats";
+import Courses from "../Course/Courses";
 
 const StudentDashboard = () => {
-    const { enrollments, completedEnrollments } = useContext(EnrollmentContext);
-
+    const { user: authUser } = useContext(AuthContext);
     const { user } = useContext(UserContext);
+    const { enrollments = [], completedEnrollments } = useContext(EnrollmentContext);
 
-    const inProgressEnrollments = enrollments.filter((enrollment) => {
-        const progress = enrollment.progress ?? 0;
-        return progress > 0 && progress < 100;
-    });
+    const currentUser = user || authUser;
 
-    const certificates = completedEnrollments.filter(
-        (enrollment) =>
-            enrollment.certificateId ||
-            enrollment.certificate ||
-            enrollment.certificateUrl
-    );
+    const inProgressEnrollments = useMemo(() => {
+        return enrollments.filter((enrollment) => {
+            const progress = enrollment.progressPercentage ?? enrollment.progress ?? 0;
+
+            return Number(progress) > 0 && Number(progress) < 100;
+        });
+    }, [enrollments]);
+
+
+    /*
+     * Certificates are not part of the current MVP.
+     *
+     * Keep this as an empty array for now so the dashboard
+     * structure can easily support certificates later.
+     */
+    const certificates = [];
 
     return (
-        <main className="w-full">
+        <main className="w-full bg-[#f6f8fc]">
 
-            {/* Welcome */}
-            {/* <Welcome /> */}
+            <div className="mx-auto w-full max-w-7xl px-5 py-8 sm:px-6 lg:px-8">
 
-            {/* Profile */}
-            {/* <ProfileCompletion user={user} /> */}
+                {/* Welcome */}
+                <Welcome user={currentUser} />
 
-            {/* Statistics */}
-            {/* <LearningStats
-                totalCourses={enrollments.length}
-                inProgress={inProgressEnrollments.length}
-                completed={completedEnrollments.length}
-                certificates={certificates.length}
-            /> */}
 
-            {/* Continue Learning */}
-            {/* <ContinueLearning
-                enrollments={enrollments}
-            /> */}
+                {/* Profile */}
+                <ProfileCompletion user={currentUser} />
 
-            {/* My Courses */}
-            {/* <MyCourses
-                enrollments={enrollments}
-            /> */}
 
-            {/* Recent Activity */}
-            {/* <RecentActivity
-                enrollments={enrollments}
-                completedEnrollments={completedEnrollments}
-            /> */}
+                {/* Statistics */}
+                <LearningStats
+                    totalCourses={enrollments.length}
+                    inProgress={inProgressEnrollments.length}
+                    completed={completedEnrollments.length}
+                />
+
+
+                {/* Continue Learning */}
+                <ContinueLearning enrollments={enrollments} />
+
+
+                {/* My Courses */}
+                <Courses enrollments={enrollments} />
+
+
+                {/* Recent Activity */}
+                <RecentActivity enrollments={enrollments} completedEnrollments={completedEnrollments} />
+
+            </div>
 
         </main>
     );
