@@ -8,9 +8,7 @@ import ForgotPassword from "../Pages/Auth/ForgotPassword"
 import VerifyPasswordCode from "../Pages/Auth/VerifyPasswordCode"
 import ResetPassword from "../Pages/Auth/ResetPassword"
 import Layout from "../Layout/Layout"
-import Dashboard from "../Pages/Student/StudentDashboard"
 import MyCourses from "../Pages/Student/MyCourses"
-import CourseList from "../Pages/Student/CourseList"
 import Profile from "../Pages/Profile"
 import { CategoryProvider } from "../Context/CourseCategoryContext"
 import CategoryDetail from "../Pages/Student/CategorDetail"
@@ -29,9 +27,9 @@ import CourseInfo from "../Pages/Admin/CourseInfo"
 import AddLesson from "../Pages/Admin/AddLesson"
 import { LessonProvider } from "../Context/LessonContext"
 import { UserProvider } from "../Context/UserContext"
-import Certificates from "../Pages/Student/Certificate"
 import { AlertProvider } from "../Context/AlertContext"
 import AdminDashboard from "../Pages/Admin/AdminDashboard"
+import StudentDashboard from "../Pages/Student/StudentDashboard"
 
 export const AppRoutes = () => {
     return (
@@ -64,7 +62,7 @@ export const AppRoutes = () => {
 
                                             <Route element={<StudentRoute><Layout /></StudentRoute>}>
                                                 {/* Dashboard */}
-                                                <Route path="/me" element={<Dashboard />} />
+                                                <Route path="/me" element={<StudentDashboard />} />
                                                 {/* Course Details */}
                                                 <Route path="/courses/:id" element={<CourseDetail />} />
                                                 {/* Category */}
