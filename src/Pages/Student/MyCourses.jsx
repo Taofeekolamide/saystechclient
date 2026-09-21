@@ -81,7 +81,7 @@ const MyCourses = () => {
 
                             <button
                                 type="button"
-                                onClick={() => navigate("/dashboard/courses")}
+                                onClick={() => navigate("/courses")}
                                 className="mt-7 inline-flex items-center gap-2 rounded-xl bg-[#0D47D9] px-7 py-3.5 font-semibold text-white shadow-sm transition hover:bg-[#0b3dbb]"
                             >
                                 Browse Courses
@@ -116,7 +116,7 @@ const MyCourses = () => {
 
                     <button
                         type="button"
-                        onClick={() => navigate("/dashboard/courses")}
+                        onClick={() => navigate("/courses")}
                         className="inline-flex w-fit items-center gap-2 rounded-xl border border-[#0D47D9] px-5 py-2.5 font-semibold text-[#0D47D9] transition hover:bg-blue-50"
                     >
                         Browse More Courses

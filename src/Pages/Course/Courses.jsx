@@ -76,16 +76,7 @@ const Courses = () => {
 
             {/* PAGE HEADER */}
 
-            <header className="p-6 sm:p-7 mx-auto
-                    max-w-7xl
-                border-b
-                border-slate-200
-                px-5
-                    py-10
-                    sm:px-6
-                    lg:px-8
-            ">
-
+            <header className="mx-auto max-w-7xl px-5 py-5 sm:px-6 lg:px-8 border-b border-slate-200 bg-white ">
 
                 <div className="
                         flex
@@ -194,16 +185,15 @@ const Courses = () => {
 
             {/* == SEARCH AREA == */}
 
-            <section className="border-b border-slate-200 bg-white">
+            <section className="border-b border-slate-200 bg-white mx-auto max-w-7xl px-5 py-5 sm:px-6 lg:px-8 ">
 
-                <div className="mx-auto max-w-7xl px-5 py-5 sm:px-6 lg:px-8 ">
 
-                    <div className="flex flex-col gap-3 md:flex-row ">
+                <div className="flex flex-col gap-3 md:flex-row ">
 
-                        {/* Search */}
-                        <div className=" relative flex-1">
+                    {/* Search */}
+                    <div className=" relative flex-1">
 
-                            <FaSearch className="
+                        <FaSearch className="
                                     absolute
                                     left-4
                                     top-1/2
@@ -211,11 +201,11 @@ const Courses = () => {
                                     text-sm
                                     text-slate-400
                                 "
-                            />
+                        />
 
-                            <input type="text" value={search} onChange={(e) => setSearch(e.target.value)}
-                                placeholder={isAdmin ? "Search courses by title, description or category..." : "Search courses..."}
-                                className="h-12
+                        <input type="text" value={search} onChange={(e) => setSearch(e.target.value)}
+                            placeholder={isAdmin ? "Search courses by title, description or category..." : "Search courses..."}
+                            className="h-12
                                     w-full
                                     rounded-xl
                                     border
@@ -233,12 +223,12 @@ const Courses = () => {
                                     focus:ring-4
                                     focus:ring-blue-50
                                 "
-                            />
+                        />
 
 
-                            {search && (
-                                <button type="button" onClick={() => setSearch("")}
-                                    className="
+                        {search && (
+                            <button type="button" onClick={() => setSearch("")}
+                                className="
                                         absolute
                                         right-3
                                         top-1/2
@@ -253,17 +243,17 @@ const Courses = () => {
                                         hover:bg-slate-100
                                         hover:text-slate-700
                                     "
-                                >
-                                    <FaTimes size={11} />
-                                </button>
-                            )}
+                            >
+                                <FaTimes size={11} />
+                            </button>
+                        )}
 
-                        </div>
+                    </div>
 
 
-                        {/* Category select */}
-                        <select value={selectedCategory} onChange={(e) => setSelectedCategory(e.target.value)}
-                            className="
+                    {/* Category select */}
+                    <select value={selectedCategory} onChange={(e) => setSelectedCategory(e.target.value)}
+                        className="
                                 hidden
                                 h-12
                                 min-w-[220px]
@@ -282,31 +272,31 @@ const Courses = () => {
                                 focus:ring-blue-50
                                 md:block
                             "
-                        >
+                    >
 
-                            <option value="">
-                                All categories
+                        <option value="">
+                            All categories
+                        </option>
+
+                        {categories.map((category) => (
+                            <option key={category.id} value={category.name}>
+                                {category.name}
                             </option>
+                        )
+                        )}
 
-                            {categories.map((category) => (
-                                <option key={category.id} value={category.name}>
-                                    {category.name}
-                                </option>
+                    </select>
+
+
+                    {/* Mobile filter */}
+                    <button
+                        type="button"
+                        onClick={() =>
+                            setShowFilters(
+                                !showFilters
                             )
-                            )}
-
-                        </select>
-
-
-                        {/* Mobile filter */}
-                        <button
-                            type="button"
-                            onClick={() =>
-                                setShowFilters(
-                                    !showFilters
-                                )
-                            }
-                            className="flex
+                        }
+                        className="flex
                                 h-12
                                 items-center
                                 justify-center
@@ -321,18 +311,18 @@ const Courses = () => {
                                 text-slate-700
                                 md:hidden
                             "
-                        >
-                            <FaFilter size={12} />
-                            Filters
-                        </button>
+                    >
+                        <FaFilter size={12} />
+                        Filters
+                    </button>
 
-                    </div >
+                </div >
 
 
-                    {/* Mobile filters */}
-                    {
-                        showFilters && (
-                            <div className="
+                {/* Mobile filters */}
+                {
+                    showFilters && (
+                        <div className="
                             mt-4
                             border-t
                             border-slate-100
@@ -340,7 +330,7 @@ const Courses = () => {
                             md:hidden
                         ">
 
-                                <p className="
+                            <p className="
                                 mb-3
                                 text-xs
                                 font-bold
@@ -348,76 +338,76 @@ const Courses = () => {
                                 tracking-wider
                                 text-slate-400
                             ">
-                                    Categories
-                                </p>
+                                Categories
+                            </p>
 
 
-                                <div className="
+                            <div className="
                                 flex
                                 flex-wrap
                                 gap-2
                             ">
 
-                                    <button
-                                        type="button"
-                                        onClick={() =>
-                                            setSelectedCategory("")
-                                        }
-                                        className={`
+                                <button
+                                    type="button"
+                                    onClick={() =>
+                                        setSelectedCategory("")
+                                    }
+                                    className={`
                                         rounded-full
                                         px-4 py-2
                                         text-xs
                                         font-semibold
                                         transition
                                         ${selectedCategory === ""
-                                                ? "bg-[#0D47D9] text-white"
-                                                : "bg-slate-100 text-slate-600 hover:bg-slate-200"
-                                            }
+                                            ? "bg-[#0D47D9] text-white"
+                                            : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+                                        }
                                     `}
-                                    >
-                                        All
-                                    </button>
+                                >
+                                    All
+                                </button>
 
 
-                                    {categories.map(
-                                        (category) => (
-                                            <button
-                                                key={
-                                                    category.id
-                                                }
-                                                type="button"
-                                                onClick={() =>
-                                                    setSelectedCategory(
-                                                        category.name
-                                                    )
-                                                }
-                                                className={`
+                                {categories.map(
+                                    (category) => (
+                                        <button
+                                            key={
+                                                category.id
+                                            }
+                                            type="button"
+                                            onClick={() =>
+                                                setSelectedCategory(
+                                                    category.name
+                                                )
+                                            }
+                                            className={`
                                                 rounded-full
                                                 px-4 py-2
                                                 text-xs
                                                 font-semibold
                                                 transition
                                                 ${selectedCategory.toLowerCase() ===
-                                                        category.name.toLowerCase()
-                                                        ? "bg-[#0D47D9] text-white"
-                                                        : "bg-slate-100 text-slate-600 hover:bg-slate-200"
-                                                    }
+                                                    category.name.toLowerCase()
+                                                    ? "bg-[#0D47D9] text-white"
+                                                    : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+                                                }
                                             `}
-                                            >
-                                                {category.name}
-                                            </button>
-                                        )
-                                    )}
-
-                                </div>
+                                        >
+                                            {category.name}
+                                        </button>
+                                    )
+                                )}
 
                             </div>
-                        )
-                    }
+
+                        </div>
+                    )
+                }
 
 
-                    {/* Desktop category pills */}
-                    <div className="
+                {/* Desktop category pills */}
+                <div className="
                         mt-5
                         hidden
                         items-center
@@ -427,12 +417,12 @@ const Courses = () => {
                         md:flex
                     ">
 
-                        <button
-                            type="button"
-                            onClick={() =>
-                                setSelectedCategory("")
-                            }
-                            className={`
+                    <button
+                        type="button"
+                        onClick={() =>
+                            setSelectedCategory("")
+                        }
+                        className={`
                                 shrink-0
                                 rounded-full
                                 px-4 py-2
@@ -440,26 +430,26 @@ const Courses = () => {
                                 font-semibold
                                 transition
                                 ${selectedCategory === ""
-                                    ? "bg-[#0D47D9] text-white"
-                                    : "bg-slate-100 text-slate-600 hover:bg-slate-200"
-                                }
+                                ? "bg-[#0D47D9] text-white"
+                                : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+                            }
                             `}
-                        >
-                            All Courses
-                        </button>
+                    >
+                        All Courses
+                    </button>
 
 
-                        {categories.map(
-                            (category) => (
-                                <button
-                                    key={category.id}
-                                    type="button"
-                                    onClick={() =>
-                                        setSelectedCategory(
-                                            category.name
-                                        )
-                                    }
-                                    className={`
+                    {categories.map(
+                        (category) => (
+                            <button
+                                key={category.id}
+                                type="button"
+                                onClick={() =>
+                                    setSelectedCategory(
+                                        category.name
+                                    )
+                                }
+                                className={`
                                         shrink-0
                                         rounded-full
                                         px-4 py-2
@@ -467,20 +457,18 @@ const Courses = () => {
                                         font-semibold
                                         transition
                                         ${selectedCategory.toLowerCase() ===
-                                            category.name.toLowerCase()
-                                            ? "bg-[#0D47D9] text-white"
-                                            : "bg-slate-100 text-slate-600 hover:bg-slate-200"
-                                        }
+                                        category.name.toLowerCase()
+                                        ? "bg-[#0D47D9] text-white"
+                                        : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+                                    }
                                     `}
-                                >
-                                    {category.name}
-                                </button>
-                            )
-                        )}
+                            >
+                                {category.name}
+                            </button>
+                        )
+                    )}
 
-                    </div>
-
-                </div >
+                </div>
 
             </section >
 
