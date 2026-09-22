@@ -22,7 +22,7 @@ export default function Register() {
 
     return (
 
-        <div className="bg-white flex">
+        <div className="lg:min-h-screen bg-white flex">
 
             {/* LEFT SIDE */}
             <div className="w-full lg:w-[60%] flex items-center justify-center px-6 py-10 sm:px-10">
