@@ -32,17 +32,17 @@ const Sidebar = ({ role, collapsed, setCollapsed, mobile = false, closeMobile, }
             },
             {
                 title: "Categories",
-                path: "/admin/all-category",
+                path: "/all-category",
                 icon: FaLayerGroup,
             },
             {
                 title: "Add Category",
-                path: "/admin/add-category",
+                path: "/add-category",
                 icon: FaPlusCircle,
             },
             {
                 title: "Add Course",
-                path: "/admin/add-course",
+                path: "/add-course",
                 icon: FaPlus,
             }
         ],
