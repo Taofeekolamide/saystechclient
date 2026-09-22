@@ -21,7 +21,7 @@ export default function VerifyEmail() {
     const pendingVerification = localStorage.getItem("pendingVerification");
 
     return (
-        <div className="min-h-screen bg-white flex">
+        <div className="bg-white flex">
 
             {/* LEFT SIDE */}
             <div className="w-full lg:w-[52%] flex items-center justify-center px-6 py-10 sm:px-10">

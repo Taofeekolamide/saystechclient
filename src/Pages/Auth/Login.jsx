@@ -21,7 +21,7 @@ export default function Login() {
     };
 
     return (
-        <div className="min-h-screen bg-white flex">
+        <div className="bg-white flex">
 
             {/* RIGHT SIDE */}
             <div
