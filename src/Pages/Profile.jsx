@@ -219,106 +219,37 @@ const Profile = () => {
                     {/* PERSONAL INFORMATION */}
 
                     <section className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm lg:col-span-2">
-
                         {/* Header */}
                         <div className="flex flex-col gap-4 border-b border-slate-100 px-6 py-5 sm:flex-row sm:items-center sm:justify-between md:px-8">
-
                             <div>
-                                <h2 className="text-lg font-bold text-slate-900">
-                                    Personal Information
-                                </h2>
-
-                                <p className="mt-1 text-sm text-slate-500">
-                                    Your basic personal details.
-                                </p>
+                                <h2 className="text-lg font-bold text-slate-900"> Personal Information </h2>
+                                <p className="mt-1 text-sm text-slate-500"> Keep your personal information up to date. </p>
                             </div>
-
                             {!editing && (
-                                <button
-                                    type="button"
-                                    onClick={() => setEditing(true)}
-                                    className="inline-flex w-fit items-center gap-2 rounded-xl bg-blue-50 px-4 py-2.5 text-sm font-semibold text-[#0D47D9] transition hover:bg-blue-100"
-                                >
-                                    <FaEdit size={14} />
-                                    Edit Details
-                                </button>
-                            )}
-
+                                <button type="button" onClick={() => setEditing(true)} className="inline-flex w-fit items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-semibold text-slate-700 transition hover:border-blue-200 hover:bg-blue-50 hover:text-[#0D47D9]" >
+                                    <FaEdit size={13} /> Edit Details
+                                </button>)}
                         </div>
 
-                        {/* Form */}
+                        {/* Fields */}
                         <div className="p-6 md:p-8">
-
-                            <div className="grid gap-5 md:grid-cols-2">
-
-                                <InputField
-                                    name="firstName"
-                                    label="First Name"
-                                    icon={FaUser}
-                                    value={form?.firstName}
-                                    onChange={handleChange}
-                                    disabled={!editing}
-                                />
-
-                                <InputField
-                                    name="lastName"
-                                    label="Last Name"
-                                    icon={FaUser}
-                                    value={form?.lastName}
-                                    onChange={handleChange}
-                                    disabled={!editing}
-                                />
-
-                                <InputField
-                                    name="email"
-                                    label="Email Address"
-                                    icon={FaEnvelope}
-                                    value={auth?.email}
-                                    disabled
-                                />
-
-                                <InputField
-                                    name="phoneNumber"
-                                    label="Phone Number"
-                                    icon={FaPhone}
-                                    value={form?.phoneNumber}
-                                    onChange={handleChange}
-                                    disabled={!editing}
-                                />
-
+                            <div className="grid gap-x-6 gap-y-7 md:grid-cols-2">
+                                <InputField name="firstName" label="First Name" value={form?.firstName} onChange={handleChange} disabled={!editing} />
+                                <InputField name="lastName" label="Last Name" value={form?.lastName} onChange={handleChange} disabled={!editing} />
+                                <InputField name="email" label="Email Address" value={auth?.email} disabled />
+                                <InputField name="phoneNumber" label="Phone Number" value={form?.phoneNumber} onChange={handleChange} disabled={!editing} />
                             </div>
 
                             {/* Actions */}
                             {editing && (
-                                <div className="mt-7 flex flex-col-reverse gap-3 border-t border-slate-100 pt-6 sm:flex-row sm:justify-end">
+                                <div className="mt-8 flex flex-col-reverse gap-3 border-t border-slate-100 pt-6 sm:flex-row sm:justify-end">
+                                    <button type="button" onClick={() => setEditing(false)} disabled={loading} className="rounded-xl border border-slate-200 bg-white px-6 py-3 text-sm font-semibold text-slate-600 transition hover:bg-slate-50 disabled:opacity-50" > Cancel
 
-                                    <button
-                                        type="button"
-                                        onClick={() => setEditing(false)}
-                                        disabled={loading}
-                                        className="rounded-xl border border-slate-200 px-5 py-3 text-sm font-semibold text-slate-600 transition hover:bg-slate-50 disabled:opacity-50"
-                                    >
-                                        Cancel
                                     </button>
-
-                                    <button
-                                        type="button"
-                                        onClick={handleSave}
-                                        disabled={loading}
-                                        className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#0D47D9] px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-[#0b3dbb] disabled:cursor-not-allowed disabled:opacity-50"
-                                    >
-                                        <FaSave size={14} />
-
-                                        {loading
-                                            ? "Saving..."
-                                            : "Save Changes"}
+                                    <button type="button" onClick={handleSave} disabled={loading} className="rounded-xl bg-[#0D47D9] px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-[#0b3dbb] disabled:cursor-not-allowed disabled:opacity-50" > {loading ? "Saving..." : "Save Changes"}
                                     </button>
-
-                                </div>
-                            )}
-
+                                </div>)}
                         </div>
-
                     </section>
 
                     {/*ACCOUNT DETAILS */}
@@ -393,42 +324,6 @@ const Profile = () => {
 
                 </div>
 
-                {/* ACCOUNT SETTINGS / SECURITY */}
-
-                <section className="mt-6 mb-8 overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
-
-                    <div className="flex flex-col gap-4 p-6 sm:flex-row sm:items-center sm:justify-between md:px-8">
-
-                        <div className="flex items-center gap-4">
-
-                            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-slate-100 text-slate-600">
-                                <FaShieldAlt size={17} />
-                            </div>
-
-                            <div>
-                                <h3 className="font-semibold text-slate-900">
-                                    Account Security
-                                </h3>
-
-                                <p className="mt-1 text-sm text-slate-500">
-                                    Keep your account information secure.
-                                </p>
-                            </div>
-
-                        </div>
-
-                        <button
-                            type="button"
-                            className="inline-flex items-center justify-center gap-2 text-sm font-semibold text-[#0D47D9] transition hover:text-[#0b3dbb]"
-                        >
-                            Security Settings
-                            <FaChevronRight size={12} />
-                        </button>
-
-                    </div>
-
-                </section>
-
             </div>
         </main>
     );
@@ -464,37 +359,15 @@ const StatCard = ({ icon: Icon, title, value }) => {
 
 /* INPUT FIELD */
 
-const InputField = ({ name, label, icon: Icon, value, disabled = false, onChange, }) => {
+const InputField = ({ name, label, value, disabled = false, onChange, }) => {
     return (
-        <div>
-
-            <label className="mb-2 block text-sm font-semibold text-slate-600">
-                {label}
-            </label>
-
-            <div className="relative">
-
-                <div className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">
-                    <Icon size={14} />
-                </div>
-
-                <input name={name} value={value || ""} disabled={disabled} onChange={onChange}
-                    className={`
-h - 12 w - full rounded - xl border pl - 11 pr - 4
-text - sm outline - none transition
-                        ${disabled
-                            ? "cursor-not-allowed border-slate-100 bg-slate-50 text-slate-400"
-                            : "border-slate-200 bg-white text-slate-800 focus:border-[#0D47D9] focus:ring-4 focus:ring-blue-50"
-                        }
-`}
-                />
-
-            </div>
-
+        <div className="group">
+            <label htmlFor={name} className="mb-2.5 block text-sm font-semibold text-slate-700" > {label} </label>
+            <input id={name} name={name} type="text" value={value || ""} disabled={disabled} onChange={onChange} placeholder={`Enter your ${label.toLowerCase()}`} className={` h-13 w-full rounded-xl border px-4 text-[15px] font-medium outline-none transition-all duration-200 ${disabled ? ` cursor-not-allowed border-slate-200 bg-slate-50 text-slate-400 ` : ` border-slate-300 bg-white text-slate-900 placeholder:text-slate-400 hover:border-slate-400 focus:border-[#0D47D9] focus:ring-4 focus:ring-blue-50 `} `} />
+            {disabled && name === "email" && (<p className="mt-2 text-xs text-slate-400"> Your email address cannot be changed here. </p>)}
         </div>
     );
 };
-
 
 /* ACCOUNT INFO  */
 
