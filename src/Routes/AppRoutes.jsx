@@ -11,7 +11,7 @@ import Layout from "../Layout/Layout"
 import MyCourses from "../Pages/Student/MyCourses"
 import Profile from "../Pages/Profile"
 import { CategoryProvider } from "../Context/CourseCategoryContext"
-import CategoryDetail from "../Pages/Student/CategorDetail"
+import CategoryDetail from "../Pages/CategoryDetail"
 import { CourseProvider } from "../Context/CourseContext"
 import CourseDetail from "../Pages/CourseDetail"
 import { PaymentProvider } from "../Context/PaymentContext"
@@ -63,7 +63,7 @@ export const AppRoutes = () => {
                                             <Route element={<StudentRoute><Layout /></StudentRoute>}>
                                                 <Route path="/me" element={<StudentDashboard />} />
                                                 <Route path="/courses/:id" element={<CourseDetail />} />
-                                                
+
                                                 {/* Purchased Courses */}
                                                 <Route path="/my-courses" element={<MyCourses />} />
 
@@ -72,7 +72,7 @@ export const AppRoutes = () => {
 
                                                 {/* Payment */}
                                                 <Route path="/payment/callback" element={<PaymentCallback />} />
-                                                
+
                                                 {/* Certificates 
                                                 <Route path="/dashboard/certificates" element={<Certificates />} />
                                                 */}
@@ -83,7 +83,7 @@ export const AppRoutes = () => {
                                             <Route element={<AdminRoute><Layout /></AdminRoute>}>
                                                 {/* Admin Dashboard */}
                                                 <Route path="/admin" element={<AdminDashboard />} />
-                                            
+
                                                 {/* Categories */}
                                                 <Route path="/add-category" element={<AddCategory />} />
                                                 <Route path="/all-category" element={<Categories />} />
