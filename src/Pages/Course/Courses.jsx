@@ -70,11 +70,11 @@ const Courses = () => {
 
 
     return (
-        <div className=" min-h-screen ">
+        <div className="min-h-screen mx-auto w-full max-w-7xl px-5 py-8 sm:px-6 lg:px-8">
 
             {/* PAGE HEADER */}
 
-            <header className="mx-auto w-full max-w-7xl px-5 py-8 sm:px-6 lg:px-8 border-b border-slate-200 bg-white ">
+            <header className="border-b border-slate-200 bg-white ">
 
                 <div className="
                         flex
@@ -183,7 +183,7 @@ const Courses = () => {
 
             {/* == SEARCH AREA == */}
 
-            <section className="border-b border-slate-200 bg-white mx-auto max-w-7xl px-5 py-5 sm:px-6 lg:px-8 ">
+            <section className="border-b border-slate-200 bg-white">
 
 
                 <div className="flex flex-col gap-3 md:flex-row ">
@@ -473,7 +473,7 @@ const Courses = () => {
 
             {/* COURSE CONTENT */}
 
-            < main className="mx-auto max-w-7xl px-5 py-8 sm:px-6 lg:px-8 lg:py-10 ">
+            < main>
 
                 {/* Results header */}
                 <div className="
