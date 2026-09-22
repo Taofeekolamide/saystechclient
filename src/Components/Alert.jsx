@@ -14,7 +14,7 @@ const Alert = ({ type = "success", message, onClose }) => {
     const isSuccess = type === "success";
 
     return (
-        <div className="fixed top-6 right-6 z-[9999] lg:w-full w-[350px] ">
+        <div className="fixed top-6 right-4 left-4 z-[9999] w-auto max-w-md sm:left-auto sm:right-6">
             <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 p-4 flex items-start gap-3">
 
                 <div
