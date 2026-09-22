@@ -11,7 +11,6 @@ import Layout from "../Layout/Layout"
 import MyCourses from "../Pages/Student/MyCourses"
 import Profile from "../Pages/Profile"
 import { CategoryProvider } from "../Context/CourseCategoryContext"
-import CategoryDetail from "../Pages/CategoryDetail"
 import { CourseProvider } from "../Context/CourseContext"
 import CourseDetail from "../Pages/CourseDetail"
 import { PaymentProvider } from "../Context/PaymentContext"
@@ -30,6 +29,7 @@ import { UserProvider } from "../Context/UserContext"
 import { AlertProvider } from "../Context/AlertContext"
 import AdminDashboard from "../Pages/Admin/AdminDashboard"
 import StudentDashboard from "../Pages/Student/StudentDashboard"
+import { CategoryDetail } from "../Pages/CategoryDetail"
 
 export const AppRoutes = () => {
     return (
