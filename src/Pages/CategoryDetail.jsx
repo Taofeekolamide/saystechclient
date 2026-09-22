@@ -2,8 +2,8 @@ import { useContext, useMemo } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { FiArrowLeft, FiBookOpen, FiEdit2, FiPlus, FiChevronRight, FiClock, FiLayers, } from "react-icons/fi";
 import { AuthContext } from "../Context/AuthContext";
-import { CategoryContext } from "../Context/CategoryContext";
 import { CourseContext } from "../Context/CourseContext";
+import { CategoryContext } from "../Context/CourseCategoryContext";
 
 export const CategoryDetail = () => {
     const { id } = useParams();
