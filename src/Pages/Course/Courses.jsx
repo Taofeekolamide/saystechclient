@@ -473,7 +473,7 @@ const Courses = () => {
 
             {/* COURSE CONTENT */}
 
-            < main className="mt-4">
+            < main className="mt-6">
 
                 {/* Results header */}
                 <div className="
