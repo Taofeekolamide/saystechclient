@@ -74,7 +74,7 @@ const Courses = () => {
 
             {/* PAGE HEADER */}
 
-            <header className="border-b border-slate-200 bg-white ">
+            <header className="border-b border-slate-200 bg-white px-5 py-8">
 
                 <div className="
                         flex
