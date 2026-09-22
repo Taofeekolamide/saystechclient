@@ -1,74 +1,114 @@
 import { useContext } from "react";
-import { FaBars, FaBell, FaSearch, FaChevronDown } from "react-icons/fa";
+import { FaBars, FaSearch, FaChevronDown, } from "react-icons/fa";
+
 import { AuthContext } from "../Context/AuthContext";
 import { UserContext } from "../Context/UserContext";
 
 const Header = ({ setMobileOpen }) => {
+    const { auth } = useContext(AuthContext);
+    const { user } = useContext(UserContext);
 
-    const { auth } = useContext(AuthContext)
-    const { user } = useContext(UserContext)
+    const firstName = user?.firstName || "User";
+    const profileImage = user?.profilePicture || `https://placehold.co/150x150?text=${firstName.charAt(0).toUpperCase()}`;
 
     return (
-        <header className="h-16 bg-white border-b border-gray-200 px-6 flex items-center justify-between">
+        <header className="sticky top-0 z-40 flex h-16 shrink-0 items-center justify-between border-b border-slate-200 bg-white px-4 sm:px-6">
 
-            {/* Left */}
-            <div className="flex items-center gap-4">
+            {/* LEFT */}
 
-                <button onClick={() => setMobileOpen(true)}
-                    className="lg:hidden text-gray-600 text-xl"
+            <div className="flex min-w-0 items-center gap-4">
+
+                {/* Mobile menu */}
+                <button
+                    type="button"
+                    onClick={() => setMobileOpen(true)}
+                    className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-slate-600 transition hover:bg-slate-100 lg:hidden"
+                    aria-label="Open menu"
                 >
-                    <FaBars />
+                    <FaBars size={18} />
                 </button>
 
-                <div className="relative hidden md:block">
+                {/* Search */}
+                <div className="relative hidden sm:block">
 
-                    <FaSearch className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
+                    <FaSearch
+                        size={14}
+                        className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"
+                    />
 
                     <input
                         type="text"
                         placeholder="Search courses..."
-                        className="w-96 pl-11 pr-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#0D47D9]"
+                        className="
+                            h-10 w-[280px] rounded-xl
+                            border border-slate-200
+                            bg-slate-50
+                            pl-10 pr-4
+                            text-sm text-slate-800
+                            outline-none
+                            transition-all
+                            placeholder:text-slate-400
+                            hover:border-slate-300
+                            focus:border-[#0D47D9]
+                            focus:bg-white
+                            focus:ring-4
+                            focus:ring-blue-50
+                            md:w-[340px]
+                            lg:w-[380px]
+                        "
                     />
 
                 </div>
 
             </div>
 
-            {/* Right */}
-            <div className="flex items-center gap-6">
+            {/* RIGHT */}
 
-                {/* Notification
-                <button className="relative">
+            <div className="flex items-center">
 
-                    <FaBell className="text-xl text-gray-600" />
+                {/* User profile */}
+                <button
+                    type="button"
+                    className="
+                        group flex items-center gap-3
+                        rounded-xl px-2 py-1.5
+                        transition
+                        hover:bg-slate-50
+                    "
+                >
 
-                    <span className="absolute -top-1 -right-2 h-5 w-5 rounded-full bg-red-500 text-white text-xs flex items-center justify-center">
-                        3
-                    </span>
+                    {/* Avatar */}
+                    <div className="relative shrink-0">
 
-                </button> */}
+                        <img
+                            src={profileImage}
+                            alt={`${firstName}'s profile`}
+                            className="h-9 w-9 rounded-full border border-slate-200 object-cover"
+                        />
 
-                {/* User */}
+                        {/* Online indicator */}
+                        <span className="absolute bottom-0 right-0 h-2.5 w-2.5 rounded-full border-2 border-white bg-emerald-500" />
 
-                <button className="flex items-center gap-3">
+                    </div>
 
-                    <img
-                        src={user?.profilePicture || `https://placehold.co/150x150?text=${user?.firstName?.charAt(0)}`}
-                        alt=""
-                        className="w-10 h-10 rounded-full"
-                    />
+                    {/* User information */}
+                    <div className="hidden text-left md:block">
 
-                    <div className="hidden md:block text-left">
-
-                        <p className="font-semibold text-gray-800">
-                            {user?.firstName}
+                        <p className="max-w-[130px] truncate text-sm font-semibold text-slate-800">
+                            {firstName}
                         </p>
 
-                        <p className="text-xs text-gray-500">
-                            {auth?.role}
+                        <p className="text-xs text-slate-400">
+                            {auth?.role || "Student"}
                         </p>
 
                     </div>
+
+                    {/* Dropdown indicator */}
+                    <FaChevronDown
+                        size={11}
+                        className="ml-1 hidden text-slate-400 transition group-hover:text-slate-600 md:block"
+                    />
 
                 </button>
 
