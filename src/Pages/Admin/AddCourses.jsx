@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { CategoryContext } from "../../Context/CourseCategoryContext";
 import { BiCamera, BiBookOpen, BiLayer, BiBulb } from "react-icons/bi";
 import { CourseContext } from "../../Context/CourseContext";
+import { FaArrowLeft } from "react-icons/fa";
 
 const AddCourse = () => {
 
@@ -31,10 +32,10 @@ const AddCourse = () => {
 
                     <div className="flex items-center gap-4">
 
-                        <Link to="/admin/all-course"
+                        <Link to="/courses"
                             className="w-10 h-10 rounded-xl border border-gray-200 flex items-center justify-center text-gray-500 hover:text-[#0D47D9] hover:border-[#0D47D9] transition"
                         >
-                            ←
+                            <FaArrowLeft />
                         </Link>
 
                         <div>
@@ -505,7 +506,7 @@ const AddCourse = () => {
 
                         <div className="flex gap-3 w-full sm:w-auto">
 
-                            <Link to="/admin/all-course"
+                            <Link to="/courses"
                                 className="flex-1 sm:flex-none px-6 py-3 rounded-xl border border-gray-200 text-center font-semibold text-gray-600 hover:bg-gray-50 transition"
                             >
                                 Cancel

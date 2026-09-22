@@ -1,6 +1,6 @@
 import { useContext, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { FaArrowRight, FaBookOpen, FaFilter, FaSearch, FaTimes } from "react-icons/fa";
+import { FaArrowRight, FaBookOpen, FaFilter, FaPlus, FaSearch, FaTimes } from "react-icons/fa";
 
 import { CourseContext } from "../../Context/CourseContext";
 import { CategoryContext } from "../../Context/CourseCategoryContext";

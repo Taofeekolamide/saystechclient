@@ -40,7 +40,7 @@ export const AuthProvider = ({ children }) => {
             showAlert("Login Successfull", "success");
 
             if (response.data.role === "Admin") {
-                nav("/", { replace: true });
+                nav("/admin", { replace: true });
             } else {
                 nav("/me", { replace: true });
             }

@@ -11,8 +11,8 @@ export default function AddCategory() {
     return (
         <div className="min-h-screen bg-[#f6f8fc] p-6 md:p-8">
 
-            <Link to="/admin/all-category" className="text-gray-500 hover:text-[#0D47D9]"            >
-                ← Back to Categories
+            <Link to="/all-category" className="text-gray-500 hover:text-[#0D47D9]"            >
+                Back to Categories
             </Link>
 
             <div className="max-w-4xl mx-auto mt-6">
@@ -117,7 +117,7 @@ export default function AddCategory() {
                     {/* Buttons */}
                     <div className="flex justify-end gap-3">
 
-                        <Link to="/admin/categories"
+                        <Link to="/all-category"
                             className="px-5 py-3 rounded-xl border border-gray-200 font-semibold text-gray-600 hover:bg-gray-50"
                         >
                             Cancel

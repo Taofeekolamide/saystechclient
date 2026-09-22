@@ -32,17 +32,17 @@ const Sidebar = ({ role, collapsed, setCollapsed, mobile = false, closeMobile, }
             },
             {
                 title: "Categories",
-                path: "/admin/all-category",
+                path: "/all-category",
                 icon: FaLayerGroup,
             },
             {
                 title: "Add Category",
-                path: "/admin/add-category",
+                path: "/add-category",
                 icon: FaPlusCircle,
             },
             {
                 title: "Add Course",
-                path: "/admin/add-course",
+                path: "/add-course",
                 icon: FaPlus,
             }
         ],
@@ -186,7 +186,7 @@ const Sidebar = ({ role, collapsed, setCollapsed, mobile = false, closeMobile, }
 
                 <button
                     onClick={logout}
-                    className={`mt-2 flex items-center ${collapsed && !mobile
+                    className={`w-full mt-2 flex items-center ${collapsed && !mobile
                         ? "justify-center"
                         : "gap-4"
                         } px-4 py-3 mb-2 rounded-xl transition-all duration-300
