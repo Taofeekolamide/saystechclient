@@ -2,8 +2,7 @@ import registerBg from "../../assets/reg.jpg";
 
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import { FaUser, FaEnvelope, FaPhone, FaEye, FaEyeSlash, FaLock, FaArrowRight, } from "react-icons/fa";
-import logo from "../../assets/logo.png";
+import { FaEnvelope, FaEye, FaEyeSlash, FaLock, FaArrowRight, } from "react-icons/fa";
 import { AuthContext } from "../../Context/AuthContext";
 
 export default function Register() {
@@ -29,9 +28,8 @@ export default function Register() {
             <div className="w-full lg:w-[60%] flex items-center justify-center px-6 py-10 sm:px-10">
 
                 <div className="w-full max-w-[440px]"> {/* Logo */}
-                    <Link to="/" className="inline-block">
-                        <img src={logo} alt="Saystech Computer Hub" className="w-40 sm:w-44" />
-                    </Link> {/* Heading */}
+
+                    {/* Heading */}
                     <div className="mt-10">
                         <p className="text-sm font-semibold text-[#0D47D9] mb-3"> STUDENT REGISTRATION
                         </p>

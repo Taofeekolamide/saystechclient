@@ -23,16 +23,6 @@ const VerifyPasswordCode = () => {
         <div className="min-h-screen bg-white flex items-center justify-center px-6 py-10">
             <div className="w-full max-w-[440px]">
 
-                {/* Logo */}
-                <div className="flex justify-center">
-                    <Link to="/" className="inline-block">
-                        <img
-                            src={logo}
-                            alt="Saystech Computer Hub"
-                            className="w-40 sm:w-44"
-                        />
-                    </Link>
-                </div>
 
                 {/* Back */}
                 <Link

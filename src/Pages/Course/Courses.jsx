@@ -70,13 +70,11 @@ const Courses = () => {
 
 
     return (
-        <div className="
-            min-h-screen
-        ">
+        <div className=" min-h-screen ">
 
             {/* PAGE HEADER */}
 
-            <header className="mx-auto max-w-7xl px-5 py-5 sm:px-6 lg:px-8 border-b border-slate-200 bg-white ">
+            <header className="mx-auto w-full max-w-7xl px-5 py-8 sm:px-6 lg:px-8 border-b border-slate-200 bg-white ">
 
                 <div className="
                         flex

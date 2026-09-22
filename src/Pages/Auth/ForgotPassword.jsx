@@ -1,7 +1,6 @@
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { FaEnvelope, FaArrowLeft, FaPaperPlane, FaShieldAlt, } from "react-icons/fa";
-import logo from "../../assets/logo.png";
 import { AuthContext } from "../../Context/AuthContext";
 
 const ForgotPassword = () => {
@@ -18,7 +17,8 @@ const ForgotPassword = () => {
                 <Link
                     to="/login"
                     className="
-                        inline-flex
+                    items-center
+                        flex
                         gap-2
                         mt-12
                         text-sm
@@ -31,17 +31,6 @@ const ForgotPassword = () => {
                     <FaArrowLeft className="text-xs" />
                     Back to login
                 </Link>
-
-                {/* Logo */}
-                <div className="flex justify-center">
-                    <Link to="/" className="inline-block">
-                        <img
-                            src={logo}
-                            alt="Saystech Computer Hub"
-                            className="w-40 sm:w-44"
-                        />
-                    </Link>
-                </div>
 
                 {/* Heading */}
                 <div className="mt-9">

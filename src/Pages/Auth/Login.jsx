@@ -3,7 +3,6 @@ import loginBg from "../../assets/reg.jpg";
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { FaEye, FaEyeSlash, FaEnvelope, FaLock, FaArrowRight, } from "react-icons/fa";
-import logo from "../../assets/logo.png";
 
 import { AuthContext } from "../../Context/AuthContext";
 
@@ -179,15 +178,6 @@ export default function Login() {
             {/* LEFT SIDE */}
             <div className="w-full lg:w-[48%] flex items-center justify-center px-6 py-10 sm:px-10">
                 <div className="w-full max-w-[440px]">
-
-                    {/* Logo */}
-                    <Link to="/" className="inline-block">
-                        <img
-                            src={logo}
-                            alt="Saystech Computer Hub"
-                            className="w-40 sm:w-44"
-                        />
-                    </Link>
 
                     {/* Heading */}
                     <div className="mt-14">

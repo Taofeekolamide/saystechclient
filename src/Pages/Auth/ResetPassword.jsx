@@ -1,7 +1,6 @@
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { FaArrowLeft, FaLock, FaEye, FaEyeSlash, FaShieldAlt, FaArrowRight } from "react-icons/fa";
-import logo from "../../assets/logo.png";
 import { AuthContext } from "../../Context/AuthContext";
 
 const ResetPassword = () => {
@@ -27,17 +26,6 @@ const ResetPassword = () => {
     return (
         <div className="min-h-screen bg-white flex items-center justify-center px-6 py-10">
             <div className="w-full max-w-[440px]">
-
-                {/* Logo */}
-                <div className="flex justify-center">
-                    <Link to="/" className="inline-block">
-                        <img
-                            src={logo}
-                            alt="Saystech Computer Hub"
-                            className="w-40 sm:w-44"
-                        />
-                    </Link>
-                </div>
 
                 {/* Back */}
                 <Link
