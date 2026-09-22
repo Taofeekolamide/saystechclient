@@ -137,13 +137,13 @@ const CourseInfo = () => {
 
                         <div className="flex items-center gap-3">
 
-                            <Link to={`/admin/edit-course/${course.id}`}
+                            <Link to={`/edit-course/${course.id}`}
                                 className="flex items-center justify-center gap-2 px-5 py-3 rounded-xl border border-gray-200 bg-white text-gray-700 font-semibold hover:bg-gray-50 transition"
                             >
                                 <BiEdit /> Edit Course
                             </Link>
 
-                            <Link to={`/admin/add-lesson/${course.id}`}
+                            <Link to={`/add-lesson/${course.id}`}
                                 className="flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-[#0D47D9] text-white font-semibold hover:bg-[#0a3bb5] transition"
                             >
                                 <BiPlus className="text-xl" /> Add Lesson

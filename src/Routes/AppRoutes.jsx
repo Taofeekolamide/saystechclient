@@ -55,24 +55,24 @@ export const AppRoutes = () => {
 
                                             <Route element={<ProtectedRoute><Layout /></ProtectedRoute>}>
                                                 <Route path="/courses" element={<Courses />} />
-                                                {/* Profile */}
+                                                <Route path="/category/:id" element={<CategoryDetail />} />
                                                 <Route path="/profile" element={<Profile />} />
                                             </Route>
 
 
                                             <Route element={<StudentRoute><Layout /></StudentRoute>}>
-                                                {/* Dashboard */}
                                                 <Route path="/me" element={<StudentDashboard />} />
-                                                {/* Course Details */}
                                                 <Route path="/courses/:id" element={<CourseDetail />} />
-                                                {/* Category */}
-                                                <Route path="/dashboacategory/:id" element={<CategoryDetail />} />
+                                                
                                                 {/* Purchased Courses */}
                                                 <Route path="/my-courses" element={<MyCourses />} />
+
                                                 {/* Learning */}
                                                 <Route path="/learn/:id" element={<CourseLearning />} />
+
                                                 {/* Payment */}
                                                 <Route path="/payment/callback" element={<PaymentCallback />} />
+                                                
                                                 {/* Certificates 
                                                 <Route path="/dashboard/certificates" element={<Certificates />} />
                                                 */}
@@ -83,16 +83,19 @@ export const AppRoutes = () => {
                                             <Route element={<AdminRoute><Layout /></AdminRoute>}>
                                                 {/* Admin Dashboard */}
                                                 <Route path="/admin" element={<AdminDashboard />} />
+                                            
                                                 {/* Categories */}
-                                                <Route path="/admin/add-category" element={<AddCategory />} />
-                                                <Route path="/admin/all-category" element={<Categories />} />
+                                                <Route path="/add-category" element={<AddCategory />} />
+                                                <Route path="/all-category" element={<Categories />} />
+
                                                 {/* Courses */}
-                                                <Route path="/admin/add-course" element={<AddCourse />} />
+                                                <Route path="/add-course" element={<AddCourse />} />
                                                 <Route path="/admin/course/:courseId" element={<CourseInfo />} />
-                                                <Route path="/course/edit/:courseId" element={<CourseInfo />} />
+
                                                 {/* Lessons */}
                                                 <Route path="/admin/add-lesson/:courseId" element={<AddLesson />} />
                                             </Route>
+
                                         </Routes>
 
 

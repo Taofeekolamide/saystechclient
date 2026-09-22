@@ -22,7 +22,7 @@ const Categories = () => {
                     </p>
                 </div>
 
-                <Link to="/admin/add-category"
+                <Link to="/add-category"
                     className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-[#0D47D9] text-white font-semibold hover:bg-[#0a3bb5] transition"
                 >
                     <span className="text-xl">+</span>
@@ -89,20 +89,15 @@ const Categories = () => {
                                         {category.description}
                                     </p>
                                 </div>
-
-                                <button className="text-gray-400 hover:text-gray-700 text-xl">
-                                    ⋮
-                                </button>
-
                             </div>
 
                             <div className="mt-5 pt-4 border-t border-gray-100 flex items-center justify-between">
 
                                 <Link
-                                    to={`/admin/category/${category.id}`}
+                                    to={`/category/${category.id}`}
                                     className="text-[#0D47D9] font-semibold text-sm hover:underline"
                                 >
-                                    View Courses →
+                                    View Courses
                                 </Link>
 
                                 <button className="text-sm font-medium text-gray-500 hover:text-red-500">
