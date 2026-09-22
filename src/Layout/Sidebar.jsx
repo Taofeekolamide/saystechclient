@@ -186,7 +186,7 @@ const Sidebar = ({ role, collapsed, setCollapsed, mobile = false, closeMobile, }
 
                 <button
                     onClick={logout}
-                    className={`mt-2 flex items-center ${collapsed && !mobile
+                    className={`w-full mt-2 flex items-center ${collapsed && !mobile
                         ? "justify-center"
                         : "gap-4"
                         } px-4 py-3 mb-2 rounded-xl transition-all duration-300
