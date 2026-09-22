@@ -74,7 +74,7 @@ const Courses = () => {
 
             {/* PAGE HEADER */}
 
-            <header className="border-b border-slate-200 bg-white px-5 py-8">
+            <header className="border-b border-slate-200 bg-white px-5 py-8 sm:px-6 lg:px-8">
 
                 <div className="
                         flex
@@ -183,7 +183,7 @@ const Courses = () => {
 
             {/* == SEARCH AREA == */}
 
-            <section className="border-b border-slate-200 bg-white">
+            <section className="border-b border-slate-200 bg-white px-5 py-8 sm:px-6 lg:px-8">
 
 
                 <div className="flex flex-col gap-3 md:flex-row ">
@@ -473,7 +473,7 @@ const Courses = () => {
 
             {/* COURSE CONTENT */}
 
-            < main>
+            < main className="mt-4">
 
                 {/* Results header */}
                 <div className="
