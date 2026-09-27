@@ -31,6 +31,7 @@ import AdminDashboard from "../Pages/Admin/AdminDashboard"
 import StudentDashboard from "../Pages/Student/StudentDashboard"
 import Home from "../Pages/Home";
 import { CategoryDetail } from "../Pages/CategoryDetail"
+import About from "../Pages/About";
 
 export const AppRoutes = () => {
     return (
@@ -46,6 +47,7 @@ export const AppRoutes = () => {
 
                                         <Routes>
                                             <Route path="/" element={<Home />} />
+                                            <Route path="/about" element={<About />} />
                                             <Route path="/login" element={<Login />} />
                                             <Route path="/register" element={<Register />} />
                                             <Route path="/verify-email" element={<VerifyEmail />} />
