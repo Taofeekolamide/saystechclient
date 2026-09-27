@@ -33,6 +33,7 @@ import Home from "../Pages/Home";
 import { CategoryDetail } from "../Pages/CategoryDetail"
 import About from "../Pages/About";
 import Services from "../Pages/Services";
+import Contact from "../Pages/Contact";
 
 export const AppRoutes = () => {
     return (
@@ -50,6 +51,7 @@ export const AppRoutes = () => {
                                             <Route path="/" element={<Home />} />
                                             <Route path="/about" element={<About />} />
                                             <Route path="/services" element={<Services />} />
+                                            <Route path="/contact" element={<Contact />} />
                                             <Route path="/login" element={<Login />} />
                                             <Route path="/register" element={<Register />} />
                                             <Route path="/verify-email" element={<VerifyEmail />} />
