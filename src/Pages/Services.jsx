@@ -2,12 +2,13 @@ import {
     FaLaptopCode,
     FaGraduationCap,
     FaLightbulb,
+    FaBookOpen,
     FaArrowRight,
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
 
-const About = () => {
+const Services = () => {
     return (
         <div className="min-h-screen bg-white">
 
@@ -33,14 +34,14 @@ const About = () => {
 
                         <Link
                             to="/about"
-                            className="font-medium text-[#0D47D9]"
+                            className="font-medium text-slate-600 transition hover:text-[#0D47D9]"
                         >
                             About
                         </Link>
 
                         <Link
                             to="/services"
-                            className="font-medium text-slate-600 transition hover:text-[#0D47D9]"
+                            className="font-medium text-[#0D47D9]"
                         >
                             Services
                         </Link>
@@ -63,32 +64,31 @@ const About = () => {
             </nav>
 
 
-            {/* About Hero */}
+            {/* Hero */}
             <section
-                className="relative flex min-h-[520px] items-center bg-cover bg-center"
+                className="relative flex min-h-[500px] items-center bg-cover bg-center"
                 style={{
                     backgroundImage:
-                        "url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1800&q=80')",
+                        "url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1800&q=80')",
                 }}
             >
-                {/* Overlay */}
                 <div className="absolute inset-0 bg-slate-950/65"></div>
 
                 <div className="relative z-10 mx-auto w-full max-w-7xl px-6 py-24 lg:px-8">
                     <div className="max-w-3xl">
 
                         <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-300">
-                            About Saystech
+                            Our Services
                         </p>
 
                         <h1 className="mt-4 text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl">
-                            Empowering people through technology and learning.
+                            Learn, develop, and grow with technology.
                         </h1>
 
                         <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-200">
-                            We help learners develop practical technology skills,
-                            explore their creativity, and build knowledge for the
-                            digital world.
+                            Explore learning opportunities designed to help you
+                            develop practical technology skills and build your
+                            knowledge for the digital world.
                         </p>
 
                     </div>
@@ -96,156 +96,178 @@ const About = () => {
             </section>
 
 
-            {/* Who We Are */}
+            {/* Services */}
             <section className="px-6 py-20 lg:px-8 lg:py-24">
-                <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2">
-
-                    <div>
-                        <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#0D47D9]">
-                            Who We Are
-                        </p>
-
-                        <h2 className="mt-3 text-3xl font-bold leading-tight text-slate-900 sm:text-4xl">
-                            Learning that prepares you for the digital world.
-                        </h2>
-
-                        <p className="mt-6 leading-7 text-slate-600">
-                            Saystech Computer Hub is focused on helping individuals
-                            develop practical technology skills and gain knowledge
-                            that can be applied in today's digital environment.
-                        </p>
-
-                        <p className="mt-4 leading-7 text-slate-600">
-                            Through structured learning and practical experience,
-                            learners can explore technology, develop their abilities,
-                            and become more confident in applying what they learn.
-                        </p>
-
-                        <Link
-                            to="/services"
-                            className="mt-7 inline-flex items-center gap-2 font-semibold text-[#0D47D9] transition hover:gap-3"
-                        >
-                            Explore our services
-                            <FaArrowRight size={14} />
-                        </Link>
-                    </div>
-
-
-                    <div className="overflow-hidden rounded-2xl shadow-lg">
-                        <img
-                            src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1000&q=80"
-                            alt="Students learning together"
-                            className="h-[420px] w-full object-cover"
-                        />
-                    </div>
-
-                </div>
-            </section>
-
-
-            {/* Building Skills */}
-            <section className="bg-slate-50 px-6 py-20 lg:px-8 lg:py-24">
                 <div className="mx-auto max-w-7xl">
 
                     <div className="mx-auto max-w-2xl text-center">
                         <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#0D47D9]">
-                            What We Focus On
+                            What We Offer
                         </p>
 
                         <h2 className="mt-3 text-3xl font-bold text-slate-900 sm:text-4xl">
-                            Building skills for the future
+                            Develop skills that matter
                         </h2>
 
                         <p className="mt-4 leading-7 text-slate-600">
-                            We focus on helping learners understand technology,
-                            develop practical skills, and continue growing.
+                            Our learning-focused services are designed to give
+                            learners practical knowledge and opportunities to
+                            develop their technology skills.
                         </p>
                     </div>
 
 
-                    <div className="mt-12 grid gap-7 md:grid-cols-3">
+                    <div className="mt-12 grid gap-7 md:grid-cols-2 lg:grid-cols-4">
 
-                        {/* Technology */}
-                        <div className="overflow-hidden rounded-2xl bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+                        {/* Technology Training */}
+                        <div className="overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-100 transition hover:-translate-y-1 hover:shadow-lg">
 
                             <img
                                 src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80"
-                                alt="Technology"
-                                className="h-56 w-full object-cover"
+                                alt="Technology training"
+                                className="h-48 w-full object-cover"
                             />
 
-                            <div className="p-7">
+                            <div className="p-6">
                                 <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-blue-50 text-[#0D47D9]">
                                     <FaLaptopCode size={20} />
                                 </div>
 
-                                <h3 className="mt-5 text-xl font-semibold text-slate-900">
-                                    Technology
+                                <h3 className="mt-5 text-lg font-semibold text-slate-900">
+                                    Technology Training
                                 </h3>
 
-                                <p className="mt-3 leading-7 text-slate-600">
-                                    Explore technology and develop useful digital
-                                    skills for today's connected world.
+                                <p className="mt-3 text-sm leading-6 text-slate-600">
+                                    Develop practical computer and technology
+                                    skills through structured learning.
                                 </p>
                             </div>
-
                         </div>
 
 
-                        {/* Learning */}
-                        <div className="overflow-hidden rounded-2xl bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+                        {/* Digital Skills */}
+                        <div className="overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-100 transition hover:-translate-y-1 hover:shadow-lg">
 
                             <img
-                                src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=800&q=80"
-                                alt="Learning"
-                                className="h-56 w-full object-cover"
+                                src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=800&q=80"
+                                alt="Digital skills"
+                                className="h-48 w-full object-cover"
                             />
 
-                            <div className="p-7">
-                                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-blue-50 text-[#0D47D9]">
-                                    <FaGraduationCap size={20} />
-                                </div>
-
-                                <h3 className="mt-5 text-xl font-semibold text-slate-900">
-                                    Learning
-                                </h3>
-
-                                <p className="mt-3 leading-7 text-slate-600">
-                                    Gain knowledge through structured learning and
-                                    practical experience.
-                                </p>
-                            </div>
-
-                        </div>
-
-
-                        {/* Growth */}
-                        <div className="overflow-hidden rounded-2xl bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
-
-                            <img
-                                src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80"
-                                alt="Growth"
-                                className="h-56 w-full object-cover"
-                            />
-
-                            <div className="p-7">
+                            <div className="p-6">
                                 <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-blue-50 text-[#0D47D9]">
                                     <FaLightbulb size={20} />
                                 </div>
 
-                                <h3 className="mt-5 text-xl font-semibold text-slate-900">
-                                    Growth
+                                <h3 className="mt-5 text-lg font-semibold text-slate-900">
+                                    Digital Skills
                                 </h3>
 
-                                <p className="mt-3 leading-7 text-slate-600">
-                                    Build confidence and develop skills that can
-                                    support your personal and professional growth.
+                                <p className="mt-3 text-sm leading-6 text-slate-600">
+                                    Build useful digital skills that can be applied
+                                    in different areas of work and learning.
                                 </p>
                             </div>
+                        </div>
 
+
+                        {/* Online Learning */}
+                        <div className="overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-100 transition hover:-translate-y-1 hover:shadow-lg">
+
+                            <img
+                                src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=800&q=80"
+                                alt="Online learning"
+                                className="h-48 w-full object-cover"
+                            />
+
+                            <div className="p-6">
+                                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-blue-50 text-[#0D47D9]">
+                                    <FaBookOpen size={20} />
+                                </div>
+
+                                <h3 className="mt-5 text-lg font-semibold text-slate-900">
+                                    Practical Learning
+                                </h3>
+
+                                <p className="mt-3 text-sm leading-6 text-slate-600">
+                                    Learn through structured lessons and practical
+                                    experience at your own pace.
+                                </p>
+                            </div>
+                        </div>
+
+
+                        {/* Courses */}
+                        <div className="overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-100 transition hover:-translate-y-1 hover:shadow-lg">
+
+                            <img
+                                src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800&q=80"
+                                alt="Technology courses"
+                                className="h-48 w-full object-cover"
+                            />
+
+                            <div className="p-6">
+                                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-blue-50 text-[#0D47D9]">
+                                    <FaGraduationCap size={20} />
+                                </div>
+
+                                <h3 className="mt-5 text-lg font-semibold text-slate-900">
+                                    Technology Courses
+                                </h3>
+
+                                <p className="mt-3 text-sm leading-6 text-slate-600">
+                                    Explore courses that help you build knowledge
+                                    and continue developing your skills.
+                                </p>
+                            </div>
                         </div>
 
                     </div>
+                </div>
+            </section>
+
+
+            {/* Learning Section */}
+            <section className="bg-slate-50 px-6 py-20 lg:px-8 lg:py-24">
+                <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2">
+
+                    <div className="overflow-hidden rounded-2xl shadow-lg">
+                        <img
+                            src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1000&q=80"
+                            alt="Students learning technology"
+                            className="h-[420px] w-full object-cover"
+                        />
+                    </div>
+
+                    <div>
+                        <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#0D47D9]">
+                            Learn With Us
+                        </p>
+
+                        <h2 className="mt-3 text-3xl font-bold leading-tight text-slate-900 sm:text-4xl">
+                            Turn knowledge into practical skills.
+                        </h2>
+
+                        <p className="mt-6 leading-7 text-slate-600">
+                            Learning technology is more than understanding
+                            concepts. It is about developing the confidence to
+                            use what you learn.
+                        </p>
+
+                        <p className="mt-4 leading-7 text-slate-600">
+                            Explore courses, build your knowledge, and take
+                            opportunities to put your skills into practice.
+                        </p>
+
+                        <Link
+                            to="/courses"
+                            className="mt-7 inline-flex items-center gap-2 rounded-lg bg-[#0D47D9] px-6 py-3.5 font-semibold text-white transition hover:bg-blue-700"
+                        >
+                            Explore courses
+                            <FaArrowRight size={14} />
+                        </Link>
+                    </div>
+
                 </div>
             </section>
 
@@ -255,12 +277,12 @@ const About = () => {
                 <div className="mx-auto max-w-6xl rounded-3xl bg-[#0D47D9] px-8 py-14 text-center text-white">
 
                     <h2 className="text-3xl font-bold sm:text-4xl">
-                        Ready to start learning?
+                        Ready to begin your learning journey?
                     </h2>
 
                     <p className="mx-auto mt-4 max-w-2xl text-blue-100">
-                        Take the next step and explore the learning opportunities
-                        available at Saystech Computer Hub.
+                        Create an account and start exploring the learning
+                        opportunities available at Saystech Computer Hub.
                     </p>
 
                     <Link
@@ -371,4 +393,4 @@ const About = () => {
     );
 };
 
-export default About;
+export default Services;
